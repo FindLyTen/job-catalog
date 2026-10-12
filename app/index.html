@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Workspace</title>
+<link rel="icon" type="image/png" href="/97f00e5b-7bc9-4cc1-87e3-bda09b4787ff.png">
+<style>
+:root{
+  --bg:#e9ecf1;
+  --text:#3a3f47; --muted:#7d8492; --faint:#a7aebb;
+  --accent:#5b7cfa; --accent-2:#4a6ae8;
+  --green:#3d9e6b; --amber:#bd8a2a; --red:#c46161;
+  --sh-out:4px 4px 10px rgba(166,175,193,.35), -4px -4px 10px rgba(255,255,255,.85);
+  --sh-out-sm:2px 2px 6px rgba(166,175,193,.35), -2px -2px 6px rgba(255,255,255,.8);
+  --sh-in:inset 2px 2px 5px rgba(166,175,193,.35), inset -2px -2px 5px rgba(255,255,255,.85);
+  --sh-in-deep:inset 3px 3px 7px rgba(166,175,193,.4), inset -3px -3px 7px rgba(255,255,255,.85);
+  --r:14px; --sidebar:225px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{height:100%}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  background:var(--bg);color:var(--text);display:flex;height:100vh;overflow:hidden;font-size:15px;
+  -webkit-font-smoothing:antialiased}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input,select,textarea{font:inherit;color:inherit}
+a{color:var(--accent)}
+
+/* SIDEBAR */
+#sidebar{width:var(--sidebar);min-width:var(--sidebar);display:flex;flex-direction:column;
+  overflow:hidden;padding:16px 12px}
+.nav{display:flex;flex-direction:column;gap:8px;padding:2px}
+.nav-item{display:flex;align-items:center;gap:10px;padding:11px 13px;border-radius:12px;
+  color:var(--muted);font-weight:650;font-size:14px;text-align:left;
+  transition:box-shadow .15s,color .15s}
+.nav-item:hover{color:var(--text)}
+.nav-item.active{box-shadow:var(--sh-in);color:var(--accent)}
+.nav-ico svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;
+  stroke-linecap:round;stroke-linejoin:round}
+.nbadge{margin-left:auto;font-size:11px;font-weight:800;color:var(--muted);
+  border-radius:8px;padding:2px 8px;min-width:24px;text-align:center;box-shadow:var(--sh-in)}
+.nav-item.active .nbadge{color:var(--accent)}
+
+.cat-wrap{flex:1;min-height:0;display:flex;flex-direction:column;margin-top:12px}
+.cat-scroll{flex:1;overflow-y:auto;padding:4px 2px 10px}
+.cat-scroll::-webkit-scrollbar{width:4px}
+.cat-scroll::-webkit-scrollbar-thumb{background:#cdd3dd;border-radius:3px}
+.cat-label{font-size:10.5px;font-weight:800;color:var(--faint);text-transform:uppercase;
+  letter-spacing:.8px;padding:10px 12px 8px}
+.cat-item{display:flex;align-items:center;gap:9px;padding:8px 12px;border-radius:10px;cursor:pointer;
+  color:var(--muted);user-select:none;margin-bottom:2px;font-weight:600;font-size:13.5px;transition:color .12s}
+.cat-item:hover{color:var(--text)}
+.cat-item.active{box-shadow:var(--sh-in);color:var(--text)}
+.cat-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;background:var(--c,#7d8492)}
+.cat-name{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cat-count{font-size:10.5px;font-weight:700;color:var(--faint)}
+.cat-item.active .cat-count{color:var(--accent)}
+.sub-item{display:flex;align-items:center;gap:8px;padding:6px 12px 6px 29px;border-radius:9px;
+  cursor:pointer;color:var(--muted);user-select:none;margin-bottom:1px;font-size:12.5px;font-weight:600}
+.sub-item:hover{color:var(--text)}
+.sub-item.active{box-shadow:var(--sh-in);color:var(--accent)}
+.cat-arrow{width:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  color:var(--faint);font-size:9px;transition:transform .15s}
+.cat-item.collapsed .cat-arrow{transform:rotate(-90deg)}
+
+/* MAIN */
+#main{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0;padding:16px 22px 0}
+.topbar{display:flex;align-items:center;gap:12px;padding:2px 6px 16px;flex-shrink:0}
+.topbar-title{font-size:20px;font-weight:800;letter-spacing:-.3px}
+.searchbox{margin-left:auto;display:flex;align-items:center;gap:9px;padding:9px 16px;
+  border-radius:12px;box-shadow:var(--sh-in);width:290px}
+.searchbox input{border:none;outline:none;background:transparent;width:100%;font-size:14px}
+.searchbox svg{width:15px;height:15px;stroke:var(--faint);fill:none;stroke-width:2;flex-shrink:0}
+#page{flex:1;min-height:0;overflow-y:auto;padding:4px 6px 24px}
+#page::-webkit-scrollbar{width:10px}
+#page::-webkit-scrollbar-thumb{background:#cdd3dd;border-radius:5px;border:3px solid var(--bg)}
+
+/* ====== DASHBOARD ====== */
+.dash-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;margin-bottom:18px}
+.stat{padding:15px 18px;border-radius:var(--r);box-shadow:var(--sh-out)}
+.stat .s-num{font-size:29px;font-weight:800;letter-spacing:-.5px;font-variant-numeric:tabular-nums;
+  transition:transform .2s}
+.stat.bump .s-num{transform:scale(1.13)}
+.stat .s-label{font-size:11.5px;font-weight:750;color:var(--muted);text-transform:uppercase;
+  letter-spacing:.6px;margin-top:3px}
+.stat.k-found .s-num{color:var(--accent)} .stat.k-applied .s-num{color:var(--green)}
+.stat.k-error .s-num{color:var(--red)} .stat.k-queue .s-num{color:var(--amber)}
+
+.panel{border-radius:var(--r);box-shadow:var(--sh-out);margin-bottom:18px;overflow:hidden}
+.panel-h{padding:14px 20px 4px;display:flex;align-items:center;gap:10px}
+.panel-h h3{font-size:14px;font-weight:750;text-transform:uppercase;letter-spacing:.5px;color:var(--muted)}
+.panel-h .ph-link{margin-left:auto;font-size:13px;font-weight:700;color:var(--accent);padding:5px 12px;
+  border-radius:9px;box-shadow:var(--sh-out-sm)}
+.panel-h .ph-link:hover{box-shadow:var(--sh-in)}
+.panel-b{padding:13px 20px 19px}
+.pbar-row{display:flex;align-items:center;gap:14px;margin-bottom:10px}
+.pbar-row:last-child{margin-bottom:0}
+.pbar-label{width:110px;font-size:13px;font-weight:700;color:var(--muted);flex-shrink:0;text-align:right}
+.pbar{flex:1;height:13px;border-radius:8px;box-shadow:var(--sh-in);overflow:hidden}
+.pbar-fill{height:100%;border-radius:8px;transition:width .7s cubic-bezier(.2,.7,.3,1);opacity:.85}
+.pbar-fill.g{background:#4aa87c} .pbar-fill.a{background:#cf9d40} .pbar-fill.r{background:#cd7575} .pbar-fill.b{background:#7590f8}
+.pbar-num{width:40px;font-size:13px;font-weight:800;font-variant-numeric:tabular-nums;flex-shrink:0}
+.profile-grid{display:grid;grid-template-columns:110px 1fr;gap:8px 16px;font-size:14.5px}
+.profile-grid dt{font-weight:750;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.4px;padding-top:3px}
+.profile-grid dd{line-height:1.55}
+.pill{display:inline-block;font-size:12px;font-weight:750;padding:4px 12px;border-radius:9px;
+  box-shadow:var(--sh-out-sm);color:var(--green);margin:2px 5px 2px 0}
+.pill.mid{color:var(--accent)}
+
+/* ====== SUBMIT (drop a job for the bot) ====== */
+.submit-box{border-radius:var(--r);box-shadow:var(--sh-out);padding:22px;margin-bottom:18px}
+.submit-row{display:flex;gap:12px;align-items:stretch}
+.submit-row input{flex:1;border:none;outline:none;background:transparent;font-size:15px;
+  padding:13px 18px;border-radius:12px;box-shadow:var(--sh-in)}
+.submit-row select{border:none;outline:none;background:transparent;font-size:14px;font-weight:650;
+  padding:13px 16px;border-radius:12px;box-shadow:var(--sh-in);max-width:190px;color:var(--muted)}
+.sub-list{display:flex;flex-direction:column;gap:12px}
+.sub-item-card{display:flex;align-items:flex-start;gap:14px;padding:15px 19px;border-radius:var(--r);box-shadow:var(--sh-out)}
+.sub-status{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:800;
+  padding:5px 12px;border-radius:9px;box-shadow:var(--sh-out-sm);text-transform:uppercase;letter-spacing:.4px}
+.sub-status.new{color:var(--accent)} .sub-status.working{color:var(--amber)}
+.sub-status.done{color:var(--green)} .sub-status.failed{color:var(--red)}
+.sub-status .dot{width:7px;height:7px;border-radius:50%;background:currentColor}
+.sub-status.working .dot{animation:blink 1.2s ease-in-out infinite}
+@keyframes blink{50%{opacity:.3}}
+.sub-url{font-size:14px;font-weight:650;word-break:break-all}
+.sub-url a{color:var(--text);text-decoration:none}
+.sub-url a:hover{color:var(--accent)}
+.sub-resume{font-size:12.5px;color:var(--muted);font-weight:600;margin-top:3px}
+.sub-result{font-size:13px;color:var(--muted);margin-top:5px;line-height:1.45}
+
+/* ====== RESUMES ====== */
+.resume-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.resume-card{padding:18px;border-radius:var(--r);box-shadow:var(--sh-out);display:flex;
+  flex-direction:column;gap:10px}
+.resume-ico{width:44px;height:44px;border-radius:12px;box-shadow:var(--sh-out-sm);
+  display:flex;align-items:center;justify-content:center;font-size:20px;background:var(--bg)}
+.resume-name{font-size:14.5px;font-weight:750;text-transform:capitalize}
+.resume-file{font-size:11.5px;color:var(--faint);font-weight:600;font-family:ui-monospace,Menlo,monospace}
+.resume-actions{display:flex;gap:8px;margin-top:auto}
+.resume-actions a,.resume-actions button{font-size:12.5px;font-weight:750;color:var(--accent);
+  text-decoration:none;padding:7px 14px;border-radius:9px;box-shadow:var(--sh-out-sm)}
+.resume-actions a:hover,.resume-actions button:hover{box-shadow:var(--sh-in)}
+
+/* ====== APPLICATIONS ====== */
+.app-toolbar{display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap}
+.btn{padding:11px 20px;border-radius:12px;font-size:14.5px;font-weight:750;box-shadow:var(--sh-out-sm);
+  transition:box-shadow .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{box-shadow:var(--sh-in)}
+.btn.bp{background:linear-gradient(145deg,#6d8bfb,#4a6ae8);color:#fff}
+.filter-chip{font-size:13px;font-weight:700;padding:8px 15px;border-radius:10px;color:var(--muted);
+  box-shadow:var(--sh-out-sm)}
+.filter-chip:hover{color:var(--text)}
+.filter-chip.on{box-shadow:var(--sh-in);color:var(--accent)}
+.apps-shell{border-radius:var(--r);box-shadow:var(--sh-in-deep);padding:8px;overflow-x:auto}
+table.apps{width:100%;border-collapse:collapse}
+table.apps th{font-size:10.5px;font-weight:800;color:var(--faint);text-transform:uppercase;
+  letter-spacing:.7px;text-align:left;padding:12px 14px}
+table.apps td{padding:12px 14px;font-size:14px;vertical-align:top;border-top:1px solid #d8dde5}
+td .app-role{font-weight:700}
+td .app-co{color:var(--muted);font-size:13px;margin-top:1px}
+.app-link{font-size:13px;text-decoration:none}
+.app-link:hover{text-decoration:underline}
+.status{display:inline-block;font-size:11px;font-weight:800;padding:4px 11px;border-radius:8px;
+  text-transform:capitalize;box-shadow:var(--sh-out-sm)}
+.status.applied{color:var(--accent)} .status.interview{color:var(--amber)}
+.status.offer{color:var(--green)} .status.rejected{color:var(--red)}
+.status.manual,.status.queued{color:var(--muted)}
+.tdel{color:var(--faint);font-size:16px;padding:4px 9px;border-radius:8px}
+.tdel:hover{color:var(--red);box-shadow:var(--sh-in)}
+.empty-w{padding:70px 20px;text-align:center;color:var(--faint);font-weight:650}
+.empty-w .big{font-size:34px;display:block;margin-bottom:10px;opacity:.5}
+
+/* ====== QUEUE ====== */
+.queue-list{display:flex;flex-direction:column;gap:14px}
+.q-item{display:flex;align-items:flex-start;gap:14px;padding:15px 19px;border-radius:var(--r);box-shadow:var(--sh-out)}
+.q-item .q-main{flex:1;min-width:0}
+.q-title{font-size:15px;font-weight:700}
+.q-title a{color:var(--text);text-decoration:none}
+.q-title a:hover{color:var(--accent)}
+.q-reason{font-size:13px;color:var(--muted);margin-top:3px;line-height:1.45}
+.q-meta{font-size:11.5px;color:var(--faint);margin-top:6px;font-weight:650}
+.btn-done{font-size:13px;font-weight:750;padding:9px 18px;border-radius:10px;color:var(--green);
+  box-shadow:var(--sh-out-sm);display:inline-flex;align-items:center;gap:7px}
+.btn-done:hover{color:#2e7d53}
+
+/* ====== CATALOG ====== */
+#grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;align-content:start}
+.card{padding:14px 16px;border-radius:var(--r);box-shadow:var(--sh-out);display:flex;
+  flex-direction:column;gap:9px;cursor:pointer;min-width:0;transition:box-shadow .15s,transform .12s}
+.card:hover{transform:translateY(-2px)}
+.card-top{display:flex;align-items:center;gap:10px;min-width:0}
+.favicon{width:28px;height:28px;border-radius:8px;flex-shrink:0;object-fit:contain;
+  box-shadow:var(--sh-out-sm);background:#fff;padding:2px}
+.card-name{font-size:15px;font-weight:700;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.host{font-size:12px;color:var(--faint);font-weight:650;font-family:ui-monospace,Menlo,monospace;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.btn-open{font-size:12.5px;font-weight:800;color:var(--accent);text-decoration:none;padding:7px 15px;
+  border-radius:9px;box-shadow:var(--sh-out-sm);flex-shrink:0}
+.btn-open:hover{box-shadow:var(--sh-in)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:10px;font-weight:800;padding:3px 9px;border-radius:7px;text-transform:uppercase;
+  letter-spacing:.4px;box-shadow:var(--sh-out-sm);color:var(--muted)}
+.tag.remote{color:var(--green)} .tag.login{color:var(--amber)} .tag.cookies{color:var(--accent)}
+.tag.country{display:inline-flex;align-items:center;gap:5px;padding:2px 9px 2px 7px}
+.tag.country img{width:14px;height:10px;border-radius:2px;object-fit:cover;display:block}
+
+/* MODALS */
+.mo{position:fixed;inset:0;background:rgba(90,100,120,.28);backdrop-filter:blur(3px);
+  display:flex;align-items:center;justify-content:center;z-index:500;animation:fade .15s ease}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.mbox{background:var(--bg);border-radius:20px;padding:24px;width:470px;max-width:94vw;max-height:88vh;
+  overflow-y:auto;box-shadow:10px 10px 28px rgba(140,150,175,.35), -8px -8px 20px rgba(255,255,255,.75);
+  animation:pop .18s cubic-bezier(.2,.8,.3,1.1)}
+@keyframes pop{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
+.mbox h3{font-size:17px;font-weight:800;margin-bottom:16px}
+.fr{margin-bottom:13px}
+.fr label{display:block;font-size:11px;color:var(--muted);margin-bottom:7px;text-transform:uppercase;
+  letter-spacing:.5px;font-weight:800}
+.fr input,.fr select,.fr textarea{width:100%;background:transparent;border:none;border-radius:11px;
+  padding:11px 14px;font-size:14.5px;outline:none;box-shadow:var(--sh-in)}
+.fr textarea{resize:vertical;min-height:64px}
+.frow{display:flex;gap:12px}.frow .fr{flex:1}
+.mbtns{display:flex;gap:12px;justify-content:flex-end;margin-top:16px}
+.warnbox{border-radius:11px;box-shadow:var(--sh-in);padding:11px 14px;font-size:13px;font-weight:650;
+  color:var(--amber);margin-top:10px;display:none}
+
+/* TOAST */
+#toasts{position:fixed;bottom:24px;right:24px;z-index:900;display:flex;flex-direction:column;gap:10px}
+.toast{background:var(--bg);color:var(--text);font-size:13.5px;font-weight:700;padding:12px 19px;
+  border-radius:12px;box-shadow:6px 6px 16px rgba(140,150,175,.4), -5px -5px 12px rgba(255,255,255,.8);
+  animation:pop .18s ease}
+.toast.warn{color:var(--amber)} .toast.err{color:var(--red)}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<aside id="sidebar">
+  <div class="nav">
+    <button class="nav-item active" data-page="dash">
+      <span class="nav-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg></span>
+      Dashboard<span class="nbadge" id="nb-app"></span></button>
+    <button class="nav-item" data-page="submit">
+      <span class="nav-ico"><svg viewBox="0 0 24 24"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg></span>
+      Submit a Job<span class="nbadge" id="nb-sub"></span></button>
+    <button class="nav-item" data-page="apps">
+      <span class="nav-ico"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></span>
+      Applications<span class="nbadge" id="nb-app2"></span></button>
+    <button class="nav-item" data-page="queue">
+      <span class="nav-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
+      Manual Queue<span class="nbadge" id="nb-q"></span></button>
+    <button class="nav-item" data-page="resumes">
+      <span class="nav-ico"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6"/></svg></span>
+      Resumes</button>
+  </div>
+  <div class="cat-wrap">
+    <div class="cat-label">Job Boards</div>
+    <div class="cat-scroll" id="cat-list"></div>
+  </div>
+</aside>
+
+<div id="main">
+  <div class="topbar">
+    <div class="topbar-title" id="tb-title">Dashboard</div>
+    <div class="searchbox" id="searchbox" style="display:none">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input id="search" placeholder="Search...">
+    </div>
+  </div>
+  <div id="page"></div>
+</div>
+
+<div id="toasts"></div>
+
+<script>
+const ICONS={
+  plus:'<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>',
+  check:'<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>'
+};
+const PRESET_TAGS=['Remote','Login','Cookies','Board','Direct'];
+const TAG_CLS={'Remote':'remote','Login':'login','Cookies':'cookies'};
+let catData={cats:[],items:[]};
+let ws={profile:null,applications:[],queue:[],submissions:[],stats:{}};
+let resumesList=[];
+let page='dash';
+let activeCat=null,activeSub=null;
+const openCats=new Set();
+let searchQ='';
+
+function escH(s){return String(s||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function domain(u){try{return new URL(u).hostname.replace('www.','')}catch{return u||''}}
+function toast(msg,cls){
+  const t=document.createElement('div');t.className='toast '+(cls||'');t.textContent=msg;
+  document.getElementById('toasts').appendChild(t);setTimeout(()=>t.remove(),3200)}
+function ago(ts){const d=Math.floor((Date.now()/1000-ts)/86400);return d<=0?'today':d+'d ago'}
+
+async function loadAll(){
+  const [c,w,r]=await Promise.all([
+    fetch('/api/data').then(r=>r.json()),
+    fetch('/api/ws').then(r=>r.json()),
+    fetch('/api/resumes').then(r=>r.json()).catch(()=>[])
+  ]);
+  catData=c; ws=w; resumesList=r||[];
+  render();
+}
+
+/* ---------- NAV ---------- */
+document.querySelectorAll('.nav-item').forEach(b=>b.addEventListener('click',()=>{
+  page=b.dataset.page;
+  document.querySelectorAll('.nav-item').forEach(x=>x.classList.toggle('active',x===b));
+  render();
+}));
+
+function render(){
+  const n=ws.applications.length, qn=ws.queue.length, sn=(ws.submissions||[]).filter(x=>x.status==='new'||x.status==='working').length;
+  for(const [id,v] of [['nb-app',n],['nb-app2',n],['nb-q',qn],['nb-sub',sn]]){
+    const el=document.getElementById(id);el.textContent=v||'';el.style.display=v?'':'none';
+  }
+  if(catData.cats.length)renderSidebar();
+  const sb=document.getElementById('searchbox');
+  sb.style.display=page==='catalog'?'flex':'none';
+  const T={dash:'Dashboard',apps:'Applications',queue:'Manual Queue',submit:'Submit a Job',resumes:'Resumes'};
+  document.getElementById('tb-title').textContent=page==='catalog'
+    ?(catData.cats.find(c=>c.id===activeCat)?.name||'Job Boards')
+    :(T[page]||'');
+  if(page==='catalog')renderCatalog();
+  else if(page==='dash')renderDash();
+  else if(page==='apps')renderApps();
+  else if(page==='queue')renderQueue();
+  else if(page==='submit')renderSubmit();
+  else if(page==='resumes')renderResumes();
+}
+
+/* ---------- DASHBOARD ---------- */
+let lastStats=null;
+function renderDash(){
+  const s=ws.stats||{};
+  const st=ws.applications||[];
+  const by={};for(const a of st)by[a.status]=(by[a.status]||0)+1;
+  const total=Math.max(st.length, s.queued||0, 1);
+  const pct=v=>Math.min(100,Math.round((v||0)/total*100));
+  const p=ws.profile||{};
+  document.getElementById('page').innerHTML=`
+  <div class="dash-stats">
+    ${statCard(s.swept,'Found by bot','k-found')}
+    ${statCard(s.filtered_out,'Filtered out','')}
+    ${statCard(s.queued??ws.queue.length,'In queues','k-queue')}
+    ${statCard(st.length,'Applied','k-applied')}
+    ${statCard(s.errors,'Errors','k-error')}
+  </div>
+  <div class="panel"><div class="panel-h"><h3>Statuses</h3></div><div class="panel-b">
+    ${barRow('Applied',st.length,pct(st.length),'g')}
+    ${barRow('Interview',by.interview||0,pct(by.interview||0),'a')}
+    ${barRow('Queued',s.queued||0,pct(s.queued),'b')}
+    ${barRow('Errors',s.errors||0,pct(s.errors),'r')}
+  </div></div>
+  <div class="panel"><div class="panel-h"><h3>Profile</h3>
+    <button class="ph-link" id="edit-profile">Edit</button></div>
+    <div class="panel-b"><dl class="profile-grid">
+      <dt>Hours</dt><dd>${escH(p.work_hours||'—')}</dd>
+      <dt>Levels</dt><dd>${(p.target_levels||[]).map((l,i)=>`<span class="pill ${i===2?'mid':''}">${escH(l)}</span>`).join('')||'—'}</dd>
+    </dl></div></div>`;
+  const cur=JSON.stringify([s.swept,s.filtered_out,s.queued,st.length,s.errors]);
+  if(lastStats&&lastStats!==cur){
+    document.querySelectorAll('.stat').forEach(el=>{
+      const num=el.querySelector('.s-num');
+      if(num&&lastStats.indexOf(String(num.textContent))<0){el.classList.add('bump');setTimeout(()=>el.classList.remove('bump'),300)}
+    });
+  }
+  lastStats=cur;
+  document.getElementById('edit-profile').addEventListener('click',openProfileModal);
+}
+function statCard(v,label,cls){
+  return `<div class="stat ${cls}"><div class="s-num">${v??'—'}</div><div class="s-label">${label}</div></div>`}
+function barRow(label,v,pctv,cls){
+  return `<div class="pbar-row"><div class="pbar-label">${escH(label)}</div>
+  <div class="pbar"><div class="pbar-fill ${cls}" style="width:${pctv}%"></div></div>
+  <div class="pbar-num">${v}</div></div>`}
+
+function openProfileModal(){
+  const p=ws.profile||{};
+  const div=modal(`<h3>Profile</h3>
+    <div class="fr"><label>Work hours</label><input id="p-hours" value="${escH(p.work_hours||'')}"></div>
+    <div class="fr"><label>Levels</label><input id="p-levels" value="${escH((p.target_levels||[]).join(', '))}"></div>
+    <div class="mbtns"><button class="btn bg" id="m-cancel">Cancel</button><button class="btn bp" id="m-save">Save</button></div>`);
+  div.querySelector('#m-cancel').addEventListener('click',()=>div.remove());
+  div.querySelector('#m-save').addEventListener('click',async()=>{
+    const body={work_hours:val('p-hours'),
+      target_levels:val('p-levels').split(',').map(s=>s.trim()).filter(Boolean)};
+    await fetch('/api/ws/profile',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+    ws.profile={...ws.profile,...body};
+    div.remove();render();toast('Saved');
+  });
+}
+function modal(html){const d=document.createElement('div');d.className='mo';
+  d.innerHTML=`<div class="mbox">${html}</div>`;
+  d.addEventListener('click',e=>{if(e.target===d)d.remove()});
+  document.body.appendChild(d);return d}
+function val(id){const el=document.getElementById(id);return el?el.value.trim():''}
+
+/* ---------- SUBMIT A JOB ---------- */
+function renderSubmit(){
+  const subs=ws.submissions||[];
+  document.getElementById('page').innerHTML=`
+  <div class="submit-box">
+    <div class="submit-row">
+      <input id="sub-url" placeholder="Paste job posting URL — the bot will open it and fill the form">
+      <select id="sub-resume"><option value="">Auto resume</option>
+        ${resumesList.map(r=>`<option value="${escH(r.file)}">${escH(r.file.replace('maxim_smirnov_','').replace('.pdf',''))}</option>`).join('')}
+      </select>
+      <button class="btn bp" id="sub-go">${ICONS.plus} Queue</button>
+    </div>
+  </div>
+  <div class="sub-list">
+  ${subs.length?[...subs].reverse().map(s=>`
+    <div class="sub-item-card">
+      <div style="flex:1;min-width:0">
+        <div class="sub-url"><a href="${escH(s.url)}" target="_blank" rel="noopener">${escH(s.url.length>70?s.url.slice(0,70)+'…':s.url)}</a></div>
+        <div class="sub-resume">${s.resume?escH(s.resume):'auto resume'} · ${ago(s.ts||0)}</div>
+        ${s.result?`<div class="sub-result">${escH(s.result)}</div>`:''}
+      </div>
+      <span class="sub-status ${escH(s.status)}"><span class="dot"></span>${escH(s.status)}</span>
+    </div>`).join('')
+  :`<div class="empty-w"><span class="big">&#128228;</span>Paste a job URL above — the bot picks it up and fills the form</div>`}
+  </div>`;
+  document.getElementById('sub-go').addEventListener('click',async()=>{
+    const url=val('sub-url');
+    if(!url){toast('Paste a URL first','err');return}
+    const r=await fetch('/api/ws/submit',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({url,resume:val('sub-resume')})});
+    const j=await r.json();
+    if(j.ok){await loadAll();document.getElementById('sub-url').value='';toast('Queued for the bot')}
+    else toast(j.error==='already queued'?'Already in queue':'Failed','err');
+  });
+  // Enter в поле = Queue
+  document.getElementById('sub-url').addEventListener('keydown',e=>{
+    if(e.key==='Enter')document.getElementById('sub-go').click()});
+}
+
+/* ---------- RESUMES ---------- */
+function renderResumes(){
+  document.getElementById('page').innerHTML=`
+  <div class="resume-grid">
+  ${resumesList.length?resumesList.map(r=>{
+    const name=r.file.replace('maxim_smirnov_','').replace('.pdf','');
+    return `<div class="resume-card">
+      <div class="resume-ico">${name==='logistics'?'&#128666;':'&#128196;'}</div>
+      <div><div class="resume-name">${escH(name)}</div><div class="resume-file">${escH(r.file)}</div></div>
+      <div class="resume-actions">
+        <a href="${escH(r.url)}" target="_blank" rel="noopener">Open</a>
+        <a href="${escH(r.url)}" download>Download</a>
+      </div>
+    </div>`}).join('')
+  :`<div class="empty-w" style="grid-column:1/-1"><span class="big">&#128196;</span>No resumes in /resumes/</div>`}
+  </div>`;
+}
+
+/* ---------- APPLICATIONS ---------- */
+let appFilter='all';
+function renderApps(){
+  const all=ws.applications||[];
+  const list=appFilter==='all'?all:all.filter(a=>a.status===appFilter);
+  const statuses=['applied','interview','offer','rejected'];
+  const counts={};for(const a of all)counts[a.status]=(counts[a.status]||0)+1;
+  document.getElementById('page').innerHTML=`
+  <div class="app-toolbar">
+    <button class="btn bp" id="add-app">${ICONS.plus} Add</button>
+    <button class="filter-chip ${appFilter==='all'?'on':''}" data-f="all">All ${all.length}</button>
+    ${statuses.map(s=>counts[s]?`<button class="filter-chip ${appFilter===s?'on':''}" data-f="${s}">${s} ${counts[s]}</button>`:'').join('')}
+  </div>
+  <div class="apps-shell">
+  ${list.length?`<table class="apps"><thead><tr>
+    <th>Role</th><th>Status</th><th>Date</th><th>Source</th><th></th>
+  </tr></thead><tbody>
+  ${[...list].reverse().map(a=>`<tr>
+    <td><div class="app-role">${escH(a.role)}</div><div class="app-co">${escH(a.company)}${a.url?` · <a class="app-link" href="${escH(a.url)}" target="_blank" rel="noopener">link</a>`:''}</div></td>
+    <td><span class="status ${escH(a.status)}">${escH(a.status)}</span></td>
+    <td>${escH(a.date)}</td>
+    <td>${escH(a.source||'—')}</td>
+    <td><button class="tdel" data-id="${escH(a.id)}">&times;</button></td>
+  </tr>`).join('')}
+  </tbody></table>`:`<div class="empty-w"><span class="big">&#9998;</span>No applications yet</div>`}
+  </div>`;
+  document.getElementById('add-app').addEventListener('click',()=>openAppModal());
+  document.querySelectorAll('.filter-chip[data-f]').forEach(b=>b.addEventListener('click',()=>{
+    appFilter=b.dataset.f;renderApps();}));
+  document.querySelectorAll('.tdel').forEach(b=>b.addEventListener('click',async()=>{
+    if(!confirm('Delete?'))return;
+    await fetch('/api/ws/applications/'+b.dataset.id,{method:'DELETE'});
+    ws.applications=ws.applications.filter(x=>x.id!==b.dataset.id);render();toast('Deleted');
+  }));
+}
+
+function openAppModal(app){
+  const isE=!!app;
+  const div=modal(`<h3>${isE?'Edit':'Add'} application</h3>
+    <div class="frow">
+      <div class="fr"><label>Company *</label><input id="a-co" value="${escH(app?.company||'')}" placeholder="Acme Corp"></div>
+      <div class="fr"><label>Role *</label><input id="a-role" value="${escH(app?.role||'')}" placeholder="Logistics Coordinator"></div>
+    </div>
+    <div class="frow">
+      <div class="fr"><label>Status</label><select id="a-status">
+        ${['applied','interview','offer','rejected','manual'].map(s=>`<option ${app?.status===s?'selected':''}>${s}</option>`).join('')}
+      </select></div>
+      <div class="fr"><label>Date</label><input id="a-date" type="date" value="${escH(app?.date||new Date().toISOString().slice(0,10))}"></div>
+    </div>
+    <div class="frow">
+      <div class="fr"><label>Source</label><input id="a-src" value="${escH(app?.source||'')}" placeholder="Indeed / GH..."></div>
+      <div class="fr"><label>Resume</label><input id="a-res" value="${escH(app?.resume||'')}"></div>
+    </div>
+    <div class="fr"><label>URL</label><input id="a-url" value="${escH(app?.url||'')}"></div>
+    <div class="fr"><label>Notes</label><textarea id="a-notes">${escH(app?.notes||'')}</textarea></div>
+    <div class="mbtns"><button class="btn bg" id="m-cancel">Cancel</button><button class="btn bp" id="m-save">Save</button></div>`);
+  div.querySelector('#m-cancel').addEventListener('click',()=>div.remove());
+  div.querySelector('#m-save').addEventListener('click',async()=>{
+    const body={company:val('a-co'),role:val('a-role'),status:val('a-status'),date:val('a-date'),
+      source:val('a-src'),resume:val('a-res'),url:val('a-url'),notes:val('a-notes')};
+    if(!body.company||!body.role){toast('Company and role required','err');return}
+    if(isE)body.id=app.id;
+    const r=await fetch('/api/ws/applications',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+    const j=await r.json();
+    if(j.ok){await loadAll();div.remove();
+      toast(j.dup_warn?'Saved — company already has 2 applications':'Saved',j.dup_warn?'warn':'')}
+  });
+}
+
+/* ---------- QUEUE ---------- */
+function renderQueue(){
+  const q=ws.queue||[];
+  document.getElementById('page').innerHTML=`
+  <div class="app-toolbar"><button class="btn bp" id="add-q">${ICONS.plus} Add</button></div>
+  ${q.length?`<div class="queue-list">${[...q].reverse().map(t=>`
+    <div class="q-item">
+      <div class="q-main">
+        <div class="q-title">${t.url?`<a href="${escH(t.url)}" target="_blank" rel="noopener">${escH(t.title)}</a>`:escH(t.title)}</div>
+        ${t.reason?`<div class="q-reason">${escH(t.reason)}</div>`:''}
+        <div class="q-meta">${ago(t.ts||0)}</div>
+      </div>
+      <button class="btn-done" data-id="${escH(t.id)}">${ICONS.check} Done</button>
+    </div>`).join('')}</div>`
+  :`<div class="empty-w"><span class="big">&#9203;</span>Queue is empty</div>`}`;
+  document.getElementById('add-q').addEventListener('click',()=>{
+    const div=modal(`<h3>Add task</h3>
+      <div class="fr"><label>Title *</label><input id="q-t" placeholder="BAMKO — Lever hCaptcha"></div>
+      <div class="fr"><label>URL</label><input id="q-u"></div>
+      <div class="fr"><label>Why manual</label><input id="q-r" placeholder="hCaptcha / login"></div>
+      <div class="mbtns"><button class="btn bg" id="m-cancel">Cancel</button><button class="btn bp" id="m-save">Add</button></div>`);
+    div.querySelector('#m-cancel').addEventListener('click',()=>div.remove());
+    div.querySelector('#m-save').addEventListener('click',async()=>{
+      if(!val('q-t')){toast('Title required','err');return}
+      await fetch('/api/ws/queue',{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({title:val('q-t'),url:val('q-u'),reason:val('q-r')})});
+      await loadAll();div.remove();toast('Queued');
+    });
+  });
+  document.querySelectorAll('.btn-done').forEach(b=>b.addEventListener('click',async()=>{
+    await fetch('/api/ws/queue',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({done:b.dataset.id})});
+    ws.queue=ws.queue.filter(x=>x.id!==b.dataset.id);render();toast('Done');
+  }));
+}
+
+/* ---------- CATALOG ---------- */
+const COUNTRY_CODES={'usa':'us','united states':'us','us':'us','uk':'gb','ukraine':'ua','ua':'ua','eu':'eu',
+ 'canada':'ca','germany':'de','romania':'ro','moldova':'md','poland':'pl','france':'fr','spain':'es',
+ 'italy':'it','netherlands':'nl','portugal':'pt','brazil':'br','australia':'au','japan':'jp','india':'in',
+ 'philippines':'ph','serbia':'rs','bulgaria':'bg','hungary':'hu','czechia':'cz','czech':'cz','estonia':'ee',
+ 'latvia':'lv','lithuania':'lt','sweden':'se','norway':'no','denmark':'dk','finland':'fi','ireland':'ie',
+ 'georgia':'ge','turkey':'tr','israel':'il','uae':'ae','south africa':'za','mexico':'mx','argentina':'ar',
+ 'new zealand':'nz','austria':'at','switzerland':'ch','belgium':'be','greece':'gr','cyprus':'cy','korea':'kr'};
+function countryTag(t){return COUNTRY_CODES[String(t||'').trim().toLowerCase()]||null}
+
+function renderCatalog(){
+  const items=filteredItems();
+  document.getElementById('page').innerHTML=`<div id="grid">${items.map(it=>{
+    const host=domain(it.url);
+    const presets=[],flags=[],customs=[];
+    for(const t of(it.tags||[])){
+      if(PRESET_TAGS.includes(t))presets.push(t);
+      else if(countryTag(t))flags.push(t);
+      else customs.push(t);
+    }
+    const tagHtml=[
+      ...presets.map(t=>`<span class="tag ${TAG_CLS[t]||''}">${escH(t)}</span>`),
+      ...flags.map(t=>`<span class="tag country"><img src="https://flagcdn.com/24x18/${countryTag(t)}.png" loading="lazy">${escH(t)}</span>`),
+      ...customs.map(t=>`<span class="tag">${escH(t)}</span>`)
+    ].join('');
+    return `<div class="card" data-url="${escH(it.url)}">
+      <div class="card-top">
+        <img class="favicon" src="https://www.google.com/s2/favicons?domain=${escH(host)}&sz=32" loading="lazy" onerror="this.style.display='none'">
+        <span class="card-name" title="${escH(it.name)}">${escH(it.name)}</span>
+      </div>
+      ${tagHtml?`<div class="tags">${tagHtml}</div>`:''}
+      <div class="card-bottom">
+        <span class="host">${escH(host)}</span>
+        <a class="btn-open" href="${escH(it.url)}" target="_blank" rel="noopener">Open</a>
+      </div></div>`;
+  }).join('')||'<div class="empty-w" style="grid-column:1/-1"><span class="big">&#128218;</span>Nothing found</div>'}</div>`;
+  document.querySelectorAll('.card').forEach(c=>c.addEventListener('click',e=>{
+    if(e.target.closest('a'))return;window.open(c.dataset.url,'_blank')}));
+}
+function filteredItems(){
+  return catData.items.filter(i=>i.cat===activeCat&&(!activeSub||i.sub===activeSub)&&matchesSearch(i));
+}
+function matchesSearch(i){
+  if(!searchQ)return true;
+  const q=searchQ.toLowerCase();
+  return (i.name||'').toLowerCase().includes(q)||domain(i.url).includes(q)||
+    (i.tags||[]).some(t=>String(t).toLowerCase().includes(q));
+}
+document.getElementById('search').addEventListener('input',e=>{searchQ=e.target.value.trim();
+  if(page==='catalog')renderCatalog()});
+
+function renderSidebar(){
+  const list=document.getElementById('cat-list');
+  let html='';
+  for(const c of catData.cats){
+    const n=catData.items.filter(i=>i.cat===c.id).length;
+    const subs=(c.subs||[]).map(s=>({id:s[0],name:s[1],n:catData.items.filter(i=>i.cat===c.id&&i.sub===s[0]).length})).filter(s=>s.n>0);
+    const open=openCats.has(c.id);
+    html+=`<div class="cat-item ${activeCat===c.id?'active':''} ${subs.length&&!open?'collapsed':''}" data-cat="${c.id}" style="--c:${c.color||'#7d8492'}">
+      ${subs.length?'<span class="cat-arrow">&#9662;</span>':'<span style="width:12px"></span>'}
+      <span class="cat-dot"></span><span class="cat-name">${escH(c.name)}</span><span class="cat-count">${n}</span></div>`;
+    if(subs.length&&open)html+=subs.map(s=>`<div class="sub-item ${activeCat===c.id&&activeSub===s.id?'active':''}" data-cat="${c.id}" data-sub="${s.id}">
+      <span>${escH(s.name)}</span><span class="cat-count">${s.n}</span></div>`).join('');
+  }
+  list.innerHTML=html;
+  list.querySelectorAll('.cat-item').forEach(el=>el.addEventListener('click',()=>{
+    const id=el.dataset.cat;
+    if(activeCat===id&&activeSub!==null)activeSub=null;
+    else if(activeCat===id){const c=catData.cats.find(x=>x.id===id);
+      if(c?.subs?.length)openCats.has(id)?openCats.delete(id):openCats.add(id);}
+    else{activeCat=id;activeSub=null;const c=catData.cats.find(x=>x.id===id);
+      if(c?.subs?.length)openCats.add(id);}
+    page='catalog';
+    document.querySelectorAll('.nav-item').forEach(x=>x.classList.remove('active'));
+    render();
+  }));
+  list.querySelectorAll('.sub-item').forEach(el=>el.addEventListener('click',()=>{
+    activeCat=el.dataset.cat;activeSub=el.dataset.sub;page='catalog';render();
+  }));
+}
+
+loadAll();
+</script>
+</body>
+</html>
