@@ -6,27 +6,28 @@
 
 ## Contents
 
-- [Development](#cat-dev) — 183
-- [AI & Data](#cat-ai) — 30
-- [DevOps & Infra](#cat-devops) — 19
-- [Design & Creative](#cat-design) — 30
-- [Product & PM](#cat-prodmg) — 4
-- [Marketing & SEO](#cat-market) — 18
-- [Sales & BD](#cat-sales) — 16
-- [Support & CS](#cat-support) — 4
-- [Ops & Logistics](#cat-ops) — 37
-- [Finance & Legal](#cat-finance) — 16
-- [Web3 & Crypto](#cat-web3) — 24
-- [HR & Recruiting](#cat-hr) — 19
-- [Content & Writing](#cat-content) — 8
-- [Healthcare](#cat-med) — 21
-- [Education](#cat-edu) — 24
-- [Government & NGO](#cat-gov) — 14
-- [Industry Niche](#cat-niche) — 65
-- [General Job Boards](#cat-general) — 347
+- [Development](#development) — 183
+- [AI & Data](#ai--data) — 30
+- [DevOps & Infra](#devops--infra) — 19
+- [Design & Creative](#design--creative) — 30
+- [Product & PM](#product--pm) — 4
+- [Marketing & SEO](#marketing--seo) — 18
+- [Sales & BD](#sales--bd) — 16
+- [Support & CS](#support--cs) — 4
+- [Ops & Logistics](#ops--logistics) — 37
+- [Finance & Legal](#finance--legal) — 16
+- [Web3 & Crypto](#web3--crypto) — 24
+- [HR & Recruiting](#hr--recruiting) — 19
+- [Content & Writing](#content--writing) — 8
+- [Healthcare](#healthcare) — 21
+- [Education](#education) — 24
+- [Government & NGO](#government--ngo) — 14
+- [Industry Niche](#industry-niche) — 65
+- [General Job Boards](#general-job-boards) — 347
 
-<a id="cat-dev" name="cat-dev"></a>
-## Development — 183
+## Development
+
+183 sources in this category.
 
 ### Remote-first — 36
 
@@ -230,8 +231,9 @@
 - [mldatajobs](<https://mldatajobs.com/jobs>)
 
 
-<a id="cat-ai" name="cat-ai"></a>
-## AI & Data — 30
+## AI & Data
+
+30 sources in this category.
 
 ### AI & ML — 16
 
@@ -270,8 +272,9 @@
 - [Telus International _(view)_](<https://app.telusinternational.ai/contributor/jobs?source=nav>)
 
 
-<a id="cat-devops" name="cat-devops"></a>
-## DevOps & Infra — 19
+## DevOps & Infra
+
+19 sources in this category.
 
 ### Security — 5
 
@@ -302,8 +305,9 @@
 - [sForce Jobs](<https://sforcejobs.com/>)
 
 
-<a id="cat-design" name="cat-design"></a>
-## Design & Creative — 30
+## Design & Creative
+
+30 sources in this category.
 
 ### UX & Product Design — 12
 
@@ -342,8 +346,9 @@
 - [WP Hired](<https://wphired.com/>)
 
 
-<a id="cat-prodmg" name="cat-prodmg"></a>
-## Product & PM — 4
+## Product & PM
+
+4 sources in this category.
 
 ### Product Management — 2
 
@@ -359,8 +364,9 @@
 - [WeLoveProduct (Australia +7) _(view)_](<https://weloveproduct.co/>) — Australia, Brazil, Belgium, Germany, Japan, NZ, Portugal, Spain
 
 
-<a id="cat-market" name="cat-market"></a>
-## Marketing & SEO — 18
+## Marketing & SEO
+
+18 sources in this category.
 
 ### Digital Marketing — 9
 
@@ -390,8 +396,9 @@
 - [RevOps Careers](<https://revopscareers.com/>)
 
 
-<a id="cat-sales" name="cat-sales"></a>
-## Sales & BD — 16
+## Sales & BD
+
+16 sources in this category.
 
 ### SDR & Lead Gen — 10
 
@@ -416,8 +423,9 @@
 - [RemoteQuota](<https://www.remotequota.com/>) — Remote
 
 
-<a id="cat-support" name="cat-support"></a>
-## Support & CS — 4
+## Support & CS
+
+4 sources in this category.
 
 ### Customer Support — 1
 
@@ -433,8 +441,9 @@
 - [Support Engineer Pro _(view)_](<https://supportengineer.pro/jobs>)
 
 
-<a id="cat-ops" name="cat-ops"></a>
-## Ops & Logistics — 37
+## Ops & Logistics
+
+37 sources in this category.
 
 ### Construction — 8
 
@@ -489,8 +498,9 @@
 - [Solarjob de (Germany)](<https://solarjob.de/>) — Germany
 
 
-<a id="cat-finance" name="cat-finance"></a>
-## Finance & Legal — 16
+## Finance & Legal
+
+16 sources in this category.
 
 ### Accounting & Trading — 11
 
@@ -515,8 +525,9 @@
 - [Work in law (Switzerland)](<https://workinlaw.ch/>) — Switzerland
 
 
-<a id="cat-web3" name="cat-web3"></a>
-## Web3 & Crypto — 24
+## Web3 & Crypto
+
+24 sources in this category.
 
 ### Job Boards — 11
 
@@ -555,8 +566,9 @@
 - [LaborX](<https://laborx.com/jobs>)
 
 
-<a id="cat-hr" name="cat-hr"></a>
-## HR & Recruiting — 19
+## HR & Recruiting
+
+19 sources in this category.
 
 ### Recruiting & Sourcing — 9
 
@@ -584,8 +596,9 @@
 - [UX Remote Talent](<https://www.uxremotetalent.com/>) — Remote
 
 
-<a id="cat-content" name="cat-content"></a>
-## Content & Writing — 8
+## Content & Writing
+
+8 sources in this category.
 
 ### Writing & Media — 6
 
@@ -602,8 +615,9 @@
 - [YT Careers](<https://yt.careers/>)
 
 
-<a id="cat-med" name="cat-med"></a>
-## Healthcare — 21
+## Healthcare
+
+21 sources in this category.
 
 ### Nursing — 14
 
@@ -633,8 +647,9 @@
 - [Vacaturesinfarma](<https://vacaturesinfarma.nl/>)
 
 
-<a id="cat-edu" name="cat-edu"></a>
-## Education — 24
+## Education
+
+24 sources in this category.
 
 ### Internships & Entry — 10
 
@@ -670,8 +685,9 @@
 - [jobRxiv (Portugal)](<https://jobrxiv.org/>) — Portugal
 
 
-<a id="cat-gov" name="cat-gov"></a>
-## Government & NGO — 14
+## Government & NGO
+
+14 sources in this category.
 
 ### Government — 4
 
@@ -697,8 +713,9 @@
 - [Work In Green](<https://workingreen.jobs/>)
 
 
-<a id="cat-niche" name="cat-niche"></a>
-## Industry Niche — 65
+## Industry Niche
+
+65 sources in this category.
 
 ### Diversity & Inclusion — 22
 
@@ -790,8 +807,9 @@
 - [Remote Crew](<https://remotecrew.io/jobs>) — Remote
 
 
-<a id="cat-general" name="cat-general"></a>
-## General Job Boards — 347
+## General Job Boards
+
+347 sources in this category.
 
 ### Global — 131
 

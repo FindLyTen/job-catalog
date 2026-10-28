@@ -31,24 +31,24 @@ file, so it needs no internet.
 
 | # | Category | Sources | Subcategories |
 |---|---|---|---|
-| 1 | [General Job Boards](INDEX.md#cat-general) | 347 | Global, Europe, Ukraine, Americas, Asia-Pacific |
-| 2 | [Development](INDEX.md#cat-dev) | 183 | Remote-first, Regional, Stack boards, Startups, Gamedev, AI & Data |
-| 3 | [Industry Niche](INDEX.md#cat-niche) | 65 | Diversity, Outdoor & Seasonal, Science & Space, Ecommerce, Property, Architecture & Engineering, Sports, Aviation |
-| 4 | [Ops & Logistics](INDEX.md#cat-ops) | 37 | Construction, Skilled Trades, Logistics & Trade, Hospitality, Energy & Utilities |
-| 5 | [AI & Data](INDEX.md#cat-ai) | 30 | AI & ML, Data & Analytics |
-| 6 | [Design & Creative](INDEX.md#cat-design) | 30 | UX & Product Design, Creative & Art |
-| 7 | [Web3 & Crypto](INDEX.md#cat-web3) | 24 | Job Boards, Dev & Engineering, DeFi & DAO, Freelance & Bounties |
-| 8 | [Education](INDEX.md#cat-edu) | 24 | Internships & Entry, Teaching, Higher Ed |
-| 9 | [Healthcare](INDEX.md#cat-med) | 21 | Nursing, Pharma & Biotech |
-| 10 | [DevOps & Infra](INDEX.md#cat-devops) | 19 | Security, Cloud & Sysadmin, Salesforce |
-| 11 | [HR & Recruiting](INDEX.md#cat-hr) | 19 | Recruiting & Sourcing, People & HR Ops |
-| 12 | [Marketing & SEO](INDEX.md#cat-market) | 18 | Digital Marketing, SEO & Content, MarTech & RevOps |
-| 13 | [Sales & BD](INDEX.md#cat-sales) | 16 | SDR & Lead Gen, Closers & High-Ticket |
-| 14 | [Finance & Legal](INDEX.md#cat-finance) | 16 | Accounting & Trading, Legal |
-| 15 | [Government & NGO](INDEX.md#cat-gov) | 14 | Government, NGO & Non-Profit, Green & Sustainability |
-| 16 | [Content & Writing](INDEX.md#cat-content) | 8 | Writing & Media, YouTube & Video |
-| 17 | [Product & PM](INDEX.md#cat-prodmg) | 4 | Product Management, PM Leadership & CTO, Product Community |
-| 18 | [Support & CS](INDEX.md#cat-support) | 4 | Customer Support, Customer Success, Technical Support |
+| 1 | [General Job Boards](INDEX.md#general-job-boards) | 347 | Global, Europe, Ukraine, Americas, Asia-Pacific |
+| 2 | [Development](INDEX.md#development) | 183 | Remote-first, Regional, Stack boards, Startups, Gamedev, AI & Data |
+| 3 | [Industry Niche](INDEX.md#industry-niche) | 65 | Diversity, Outdoor & Seasonal, Science & Space, Ecommerce, Property, Architecture & Engineering, Sports, Aviation |
+| 4 | [Ops & Logistics](INDEX.md#ops--logistics) | 37 | Construction, Skilled Trades, Logistics & Trade, Hospitality, Energy & Utilities |
+| 5 | [AI & Data](INDEX.md#ai--data) | 30 | AI & ML, Data & Analytics |
+| 6 | [Design & Creative](INDEX.md#design--creative) | 30 | UX & Product Design, Creative & Art |
+| 7 | [Web3 & Crypto](INDEX.md#web3--crypto) | 24 | Job Boards, Dev & Engineering, DeFi & DAO, Freelance & Bounties |
+| 8 | [Education](INDEX.md#education) | 24 | Internships & Entry, Teaching, Higher Ed |
+| 9 | [Healthcare](INDEX.md#healthcare) | 21 | Nursing, Pharma & Biotech |
+| 10 | [DevOps & Infra](INDEX.md#devops--infra) | 19 | Security, Cloud & Sysadmin, Salesforce |
+| 11 | [HR & Recruiting](INDEX.md#hr--recruiting) | 19 | Recruiting & Sourcing, People & HR Ops |
+| 12 | [Marketing & SEO](INDEX.md#marketing--seo) | 18 | Digital Marketing, SEO & Content, MarTech & RevOps |
+| 13 | [Sales & BD](INDEX.md#sales--bd) | 16 | SDR & Lead Gen, Closers & High-Ticket |
+| 14 | [Finance & Legal](INDEX.md#finance--legal) | 16 | Accounting & Trading, Legal |
+| 15 | [Government & NGO](INDEX.md#government--ngo | 14 | Government, NGO & Non-Profit, Green & Sustainability |
+| 16 | [Content & Writing](INDEX.md#content--writing) | 8 | Writing & Media, YouTube & Video |
+| 17 | [Product & PM](INDEX.md#product--pm) | 4 | Product Management, PM Leadership & CTO, Product Community |
+| 18 | [Support & CS](INDEX.md#support--cs) | 4 | Customer Support, Customer Success, Technical Support |
 
 ## For AI agents
 

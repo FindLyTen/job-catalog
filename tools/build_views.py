@@ -518,6 +518,12 @@ def write_page(cats, items, meta, out: Path) -> None:
     out.write_text(html, encoding="utf-8")
 
 
+def md_slug(s: str) -> str:
+    s = str(s).lower()
+    s = re.sub(r"[^a-z0-9 \-_]", "", s)
+    return re.sub(r"\s", "-", s.strip())
+
+
 def write_index_md(cats, items, meta, out: Path) -> None:
     lines = [
         "# Job Catalog — readable index",
@@ -534,13 +540,13 @@ def write_index_md(cats, items, meta, out: Path) -> None:
     ]
     for c in cats:
         n = sum(1 for it in items if it["category"] == c["id"])
-        lines.append(f"- [{md_text(c['name'])}](#cat-{c['id']}) — {n}")
+        lines.append(f"- [{md_text(c['name'])}](#{md_slug(c['name'])}) — {n}")
 
     for c in cats:
         citems = [it for it in items if it["category"] == c["id"]]
         if not citems:
             continue
-        lines += ["", f'<a id="cat-{c["id"]}" name="cat-{c["id"]}"></a>', f"## {md_text(c['name'])} — {len(citems)}", ""]
+        lines += ["", f"## {md_text(c['name'])}", "", f"{len(citems)} sources in this category.", ""]
         for sid, sname in c["subs"]:
             sitems = [it for it in citems if it["subcategory"] == sid]
             if not sitems:
