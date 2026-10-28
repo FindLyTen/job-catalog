@@ -567,11 +567,24 @@ def write_mindmap(cats, items, meta, html_out: Path, md_out: Path) -> None:
             if n:
                 mmd.append(f"      {mermaid_text(sname)} {n}")
     source = "\n".join(mmd) + "\n"
+
+    flow = ["flowchart LR", f'  root(["Job Catalog - {meta["count"]} sources"])']
+    for i, c in enumerate(cats):
+        citems = [it for it in items if it["category"] == c["id"]]
+        cid = f"c{i}"
+        flow.append(f'  {cid}["{mermaid_text(c["name"])}<br/>{len(citems)}"]')
+        flow.append(f"  root --> {cid}")
+        for j, (sid, sname) in enumerate(c["subs"]):
+            n = sum(1 for it in citems if it["subcategory"] == sid)
+            if n:
+                flow.append(f'  {cid}_{j}["{mermaid_text(sname)}<br/>{n}"]')
+                flow.append(f"  {cid} --> {cid}_{j}")
+
     md_out.write_text(
         "# Job Catalog — mind map\n\n"
         f"All {meta['count']} sources as {len(cats)} categories and their subcategories.\n"
-        "GitHub renders the diagram below. Offline version: `mindmap.html`.\n\n"
-        "```mermaid\n" + source + "```\n",
+        "GitHub renders the tree below. Offline interactive version: `mindmap.html`.\n\n"
+        "```mermaid\n" + "\n".join(flow) + "\n```\n",
         encoding="utf-8",
     )
 
