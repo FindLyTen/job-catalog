@@ -515,7 +515,7 @@ def write_page(cats, items, meta, out: Path) -> None:
                 .replace("__CATCOUNT__", str(len(cats)))
                 .replace("__GENERATED__", meta["generated_at"])
                 .replace("__HASH_SHORT__", meta["source_sha256"][:16]))
-    out.write_text(html, encoding="utf-8")
+    out.write_text(html, encoding="utf-8", newline="\n")
 
 
 def md_slug(s: str) -> str:
@@ -560,7 +560,7 @@ def write_index_md(cats, items, meta, out: Path) -> None:
                 suffix = f" — {', '.join(tags)}" if tags else ""
                 lines.append(f"- [{md_text(name)}](<{it['url']}>){suffix}")
             lines.append("")
-    out.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
+    out.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8", newline="\n")
 
 
 def write_mindmap(cats, items, meta, html_out: Path, md_out: Path) -> None:
@@ -592,6 +592,7 @@ def write_mindmap(cats, items, meta, html_out: Path, md_out: Path) -> None:
         "GitHub renders the tree below. Offline interactive version: `mindmap.html`.\n\n"
         "```mermaid\n" + "\n".join(flow) + "\n```\n",
         encoding="utf-8",
+        newline="\n",
     )
 
     html = f"""<!DOCTYPE html>
@@ -632,7 +633,7 @@ def write_mindmap(cats, items, meta, html_out: Path, md_out: Path) -> None:
 </body>
 </html>
 """
-    html_out.write_text(html, encoding="utf-8")
+    html_out.write_text(html, encoding="utf-8", newline="\n")
 
 
 def mmd_render(source: str) -> str:
@@ -686,9 +687,9 @@ def write_machine(cats, items, meta, out_dir: Path) -> dict:
         "countries": [{"name": k, "count": v} for k, v in sorted(countries.items(), key=lambda x: (-x[1], x[0]))],
         "regions": [{"name": r, "count": regions.get(r, 0)} for r in REGIONS],
     }
-    (out_dir / "index.json").write_text(json.dumps(index, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    (out_dir / "index.json").write_text(json.dumps(index, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
 
-    with (out_dir / "index.jsonl").open("w", encoding="utf-8") as f:
+    with (out_dir / "index.jsonl").open("w", encoding="utf-8", newline="\n") as f:
         for it in items:
             rec = {
                 "schema": SCHEMA_ID + ".item",
@@ -758,7 +759,7 @@ def write_machine(cats, items, meta, out_dir: Path) -> dict:
             "URLs are kept exactly as in data.json (only trimmed of surrounding spaces).",
         ],
     }
-    (out_dir / "schema.json").write_text(json.dumps(schema, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    (out_dir / "schema.json").write_text(json.dumps(schema, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
     return index
 
 

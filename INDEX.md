@@ -1,6 +1,6 @@
 # Job Catalog — readable index
 
-879 sources in 18 categories. Generated 2026-10-28 20:05 UTC from `data.json` (sha256 `859256dfdce4cd8e…`).
+879 sources in 18 categories. Generated 2026-10-28 20:09 UTC from `data.json` (sha256 `859256dfdce4cd8e…`).
 
 `data.json` itself is not changed. Country in names, filled subcategories and the `(view)` note are display-only. `(view)` means the subcategory was added in this index because the data file has none.
 
