@@ -1,0 +1,739 @@
+{
+  "schema": "job-catalog-index-v1",
+  "generated_at": "2026-10-28 19:59 UTC",
+  "source": {
+    "path": "data.json",
+    "sha256": "859256dfdce4cd8ee81105a062ea38d0762630b1c58b5cf01412b811b20c795b",
+    "bytes": 173926,
+    "items": 879,
+    "categories": 18,
+    "modified": false
+  },
+  "counts": {
+    "items": 879,
+    "categories": 18,
+    "subcategories": 60,
+    "items_with_country": 282,
+    "remote_items": 101,
+    "items_without_subcategory_in_source": 37,
+    "doubtful_subcategories": 37
+  },
+  "categories": [
+    {
+      "id": "dev",
+      "name": "Development",
+      "color": "#3b82f6",
+      "count": 183,
+      "subcategories": [
+        {
+          "id": "remote",
+          "name": "Remote-first",
+          "count": 36,
+          "source": "data"
+        },
+        {
+          "id": "regional",
+          "name": "Regional",
+          "count": 59,
+          "source": "data"
+        },
+        {
+          "id": "stack",
+          "name": "Stack boards",
+          "count": 51,
+          "source": "data"
+        },
+        {
+          "id": "startups",
+          "name": "Startups",
+          "count": 24,
+          "source": "data"
+        },
+        {
+          "id": "gamedev",
+          "name": "Gamedev",
+          "count": 7,
+          "source": "data"
+        },
+        {
+          "id": "aidata",
+          "name": "AI & Data",
+          "count": 6,
+          "source": "data"
+        }
+      ]
+    },
+    {
+      "id": "ai",
+      "name": "AI & Data",
+      "color": "#8b5cf6",
+      "count": 30,
+      "subcategories": [
+        {
+          "id": "ml",
+          "name": "AI & ML",
+          "count": 16,
+          "source": "data"
+        },
+        {
+          "id": "data",
+          "name": "Data & Analytics",
+          "count": 14,
+          "source": "data"
+        }
+      ]
+    },
+    {
+      "id": "devops",
+      "name": "DevOps & Infra",
+      "color": "#0ea5e9",
+      "count": 19,
+      "subcategories": [
+        {
+          "id": "sec",
+          "name": "Security",
+          "count": 5,
+          "source": "data"
+        },
+        {
+          "id": "cloud",
+          "name": "Cloud & Sysadmin",
+          "count": 11,
+          "source": "data"
+        },
+        {
+          "id": "salesforce",
+          "name": "Salesforce",
+          "count": 3,
+          "source": "data"
+        }
+      ]
+    },
+    {
+      "id": "design",
+      "name": "Design & Creative",
+      "color": "#ec4899",
+      "count": 30,
+      "subcategories": [
+        {
+          "id": "ux",
+          "name": "UX & Product Design",
+          "count": 12,
+          "source": "data"
+        },
+        {
+          "id": "creative",
+          "name": "Creative & Art",
+          "count": 18,
+          "source": "data"
+        }
+      ]
+    },
+    {
+      "id": "prodmg",
+      "name": "Product & PM",
+      "color": "#14b8a6",
+      "count": 4,
+      "subcategories": [
+        {
+          "id": "product",
+          "name": "Product Management",
+          "count": 2,
+          "source": "view"
+        },
+        {
+          "id": "leadership",
+          "name": "PM Leadership & CTO",
+          "count": 1,
+          "source": "view"
+        },
+        {
+          "id": "community",
+          "name": "Product Community",
+          "count": 1,
+          "source": "view"
+        }
+      ]
+    },
+    {
+      "id": "market",
+      "name": "Marketing & SEO",
+      "color": "#f59e0b",
+      "count": 18,
+      "subcategories": [
+        {
+          "id": "digital",
+          "name": "Digital Marketing",
+          "count": 9,
+          "source": "data"
+        },
+        {
+          "id": "seoc",
+          "name": "SEO & Content",
+          "count": 3,
+          "source": "data"
+        },
+        {
+          "id": "martech",
+          "name": "MarTech & RevOps",
+          "count": 6,
+          "source": "data"
+        }
+      ]
+    },
+    {
+      "id": "sales",
+      "name": "Sales & BD",
+      "color": "#ef4444",
+      "count": 16,
+      "subcategories": [
+        {
+          "id": "sd",
+          "name": "SDR & Lead Gen",
+          "count": 10,
+          "source": "data"
+        },
+        {
+          "id": "closers",
+          "name": "Closers & High-Ticket",
+          "count": 6,
+          "source": "data"
+        }
+      ]
+    },
+    {
+      "id": "support",
+      "name": "Support & CS",
+      "color": "#22c55e",
+      "count": 4,
+      "subcategories": [
+        {
+          "id": "customer-support",
+          "name": "Customer Support",
+          "count": 1,
+          "source": "view"
+        },
+        {
+          "id": "customer-success",
+          "name": "Customer Success",
+          "count": 2,
+          "source": "view"
+        },
+        {
+          "id": "technical-support",
+          "name": "Technical Support",
+          "count": 1,
+          "source": "view"
+        }
+      ]
+    },
+    {
+      "id": "ops",
+      "name": "Ops & Logistics",
+      "color": "#a16207",
+      "count": 37,
+      "subcategories": [
+        {
+          "id": "construction",
+          "name": "Construction",
+          "count": 8,
+          "source": "data"
+        },
+        {
+          "id": "trades",
+          "name": "Skilled Trades",
+          "count": 13,
+          "source": "data"
+        },
+        {
+          "id": "logistics",
+          "name": "Logistics & Trade",
+          "count": 6,
+          "source": "data"
+        },
+        {
+          "id": "hospitality",
+          "name": "Hospitality",
+          "count": 8,
+          "source": "data"
+        },
+        {
+          "id": "energy",
+          "name": "Energy & Utilities",
+          "count": 2,
+          "source": "data"
+        }
+      ]
+    },
+    {
+      "id": "finance",
+      "name": "Finance & Legal",
+      "color": "#84cc16",
+      "count": 16,
+      "subcategories": [
+        {
+          "id": "accounting",
+          "name": "Accounting & Trading",
+          "count": 11,
+          "source": "data"
+        },
+        {
+          "id": "legal",
+          "name": "Legal",
+          "count": 5,
+          "source": "data"
+        }
+      ]
+    },
+    {
+      "id": "web3",
+      "name": "Web3 & Crypto",
+      "color": "#f97316",
+      "count": 24,
+      "subcategories": [
+        {
+          "id": "jobs",
+          "name": "Job Boards",
+          "count": 11,
+          "source": "data"
+        },
+        {
+          "id": "dev",
+          "name": "Dev & Engineering",
+          "count": 8,
+          "source": "data"
+        },
+        {
+          "id": "defi",
+          "name": "DeFi & DAO",
+          "count": 3,
+          "source": "data"
+        },
+        {
+          "id": "freelance",
+          "name": "Freelance & Bounties",
+          "count": 2,
+          "source": "data"
+        }
+      ]
+    },
+    {
+      "id": "hr",
+      "name": "HR & Recruiting",
+      "color": "#f472b6",
+      "count": 19,
+      "subcategories": [
+        {
+          "id": "recruiting",
+          "name": "Recruiting & Sourcing",
+          "count": 9,
+          "source": "data"
+        },
+        {
+          "id": "people",
+          "name": "People & HR Ops",
+          "count": 10,
+          "source": "data"
+        }
+      ]
+    },
+    {
+      "id": "content",
+      "name": "Content & Writing",
+      "color": "#06b6d4",
+      "count": 8,
+      "subcategories": [
+        {
+          "id": "writing",
+          "name": "Writing & Media",
+          "count": 6,
+          "source": "data"
+        },
+        {
+          "id": "video",
+          "name": "YouTube & Video",
+          "count": 2,
+          "source": "data"
+        }
+      ]
+    },
+    {
+      "id": "med",
+      "name": "Healthcare",
+      "color": "#f43f5e",
+      "count": 21,
+      "subcategories": [
+        {
+          "id": "nursing",
+          "name": "Nursing",
+          "count": 14,
+          "source": "data"
+        },
+        {
+          "id": "pharma",
+          "name": "Pharma & Biotech",
+          "count": 7,
+          "source": "data"
+        }
+      ]
+    },
+    {
+      "id": "edu",
+      "name": "Education",
+      "color": "#eab308",
+      "count": 24,
+      "subcategories": [
+        {
+          "id": "internships",
+          "name": "Internships & Entry",
+          "count": 10,
+          "source": "data"
+        },
+        {
+          "id": "teaching",
+          "name": "Teaching",
+          "count": 8,
+          "source": "data"
+        },
+        {
+          "id": "highered",
+          "name": "Higher Ed",
+          "count": 6,
+          "source": "data"
+        }
+      ]
+    },
+    {
+      "id": "gov",
+      "name": "Government & NGO",
+      "color": "#64748b",
+      "count": 14,
+      "subcategories": [
+        {
+          "id": "gov",
+          "name": "Government",
+          "count": 4,
+          "source": "data"
+        },
+        {
+          "id": "ngo",
+          "name": "NGO & Non-Profit",
+          "count": 7,
+          "source": "data"
+        },
+        {
+          "id": "green",
+          "name": "Green & Sustainability",
+          "count": 3,
+          "source": "data"
+        }
+      ]
+    },
+    {
+      "id": "niche",
+      "name": "Industry Niche",
+      "color": "#78716c",
+      "count": 65,
+      "subcategories": [
+        {
+          "id": "diversity",
+          "name": "Diversity & Inclusion",
+          "count": 22,
+          "source": "data"
+        },
+        {
+          "id": "outdoor",
+          "name": "Outdoor & Seasonal",
+          "count": 15,
+          "source": "data"
+        },
+        {
+          "id": "science",
+          "name": "Science & Space",
+          "count": 10,
+          "source": "data"
+        },
+        {
+          "id": "ecommerce",
+          "name": "Ecommerce",
+          "count": 2,
+          "source": "data"
+        },
+        {
+          "id": "property",
+          "name": "Property & Real Estate",
+          "count": 4,
+          "source": "data"
+        },
+        {
+          "id": "engineering",
+          "name": "Architecture & Engineering",
+          "count": 4,
+          "source": "data"
+        },
+        {
+          "id": "sports",
+          "name": "Sports",
+          "count": 4,
+          "source": "data"
+        },
+        {
+          "id": "aviation",
+          "name": "Aviation",
+          "count": 4,
+          "source": "data"
+        }
+      ]
+    },
+    {
+      "id": "general",
+      "name": "General Job Boards",
+      "color": "#6b7280",
+      "count": 347,
+      "subcategories": [
+        {
+          "id": "global",
+          "name": "Global",
+          "count": 131,
+          "source": "data"
+        },
+        {
+          "id": "eu",
+          "name": "Europe",
+          "count": 139,
+          "source": "data"
+        },
+        {
+          "id": "ua",
+          "name": "Ukraine",
+          "count": 10,
+          "source": "data"
+        },
+        {
+          "id": "am",
+          "name": "Americas",
+          "count": 45,
+          "source": "data"
+        },
+        {
+          "id": "ap",
+          "name": "Asia-Pacific",
+          "count": 22,
+          "source": "data"
+        }
+      ]
+    }
+  ],
+  "countries": [
+    {
+      "name": "Germany",
+      "count": 37
+    },
+    {
+      "name": "United Kingdom",
+      "count": 36
+    },
+    {
+      "name": "United States",
+      "count": 32
+    },
+    {
+      "name": "Canada",
+      "count": 28
+    },
+    {
+      "name": "Belgium",
+      "count": 25
+    },
+    {
+      "name": "Australia",
+      "count": 24
+    },
+    {
+      "name": "Spain",
+      "count": 24
+    },
+    {
+      "name": "Portugal",
+      "count": 23
+    },
+    {
+      "name": "Switzerland",
+      "count": 22
+    },
+    {
+      "name": "Japan",
+      "count": 16
+    },
+    {
+      "name": "Brazil",
+      "count": 14
+    },
+    {
+      "name": "Ukraine",
+      "count": 13
+    },
+    {
+      "name": "China",
+      "count": 12
+    },
+    {
+      "name": "New Zealand",
+      "count": 12
+    },
+    {
+      "name": "France",
+      "count": 9
+    },
+    {
+      "name": "Italy",
+      "count": 9
+    },
+    {
+      "name": "United Arab Emirates",
+      "count": 9
+    },
+    {
+      "name": "Vietnam",
+      "count": 6
+    },
+    {
+      "name": "Netherlands",
+      "count": 5
+    },
+    {
+      "name": "Poland",
+      "count": 5
+    },
+    {
+      "name": "Chile",
+      "count": 4
+    },
+    {
+      "name": "Lithuania",
+      "count": 4
+    },
+    {
+      "name": "Singapore",
+      "count": 4
+    },
+    {
+      "name": "Austria",
+      "count": 3
+    },
+    {
+      "name": "Czechia",
+      "count": 3
+    },
+    {
+      "name": "Finland",
+      "count": 3
+    },
+    {
+      "name": "Norway",
+      "count": 3
+    },
+    {
+      "name": "Romania",
+      "count": 3
+    },
+    {
+      "name": "Sweden",
+      "count": 3
+    },
+    {
+      "name": "Bulgaria",
+      "count": 2
+    },
+    {
+      "name": "Denmark",
+      "count": 2
+    },
+    {
+      "name": "Estonia",
+      "count": 2
+    },
+    {
+      "name": "Greece",
+      "count": 2
+    },
+    {
+      "name": "Moldova",
+      "count": 2
+    },
+    {
+      "name": "Serbia",
+      "count": 2
+    },
+    {
+      "name": "Bosnia",
+      "count": 1
+    },
+    {
+      "name": "Croatia",
+      "count": 1
+    },
+    {
+      "name": "Cyprus",
+      "count": 1
+    },
+    {
+      "name": "Georgia",
+      "count": 1
+    },
+    {
+      "name": "Hungary",
+      "count": 1
+    },
+    {
+      "name": "Iceland",
+      "count": 1
+    },
+    {
+      "name": "Ireland",
+      "count": 1
+    },
+    {
+      "name": "Latvia",
+      "count": 1
+    },
+    {
+      "name": "Slovakia",
+      "count": 1
+    },
+    {
+      "name": "Slovenia",
+      "count": 1
+    }
+  ],
+  "regions": [
+    {
+      "name": "Europe",
+      "count": 187
+    },
+    {
+      "name": "North America",
+      "count": 55
+    },
+    {
+      "name": "Latin America",
+      "count": 15
+    },
+    {
+      "name": "Asia-Pacific",
+      "count": 43
+    },
+    {
+      "name": "Middle East",
+      "count": 9
+    },
+    {
+      "name": "Remote / Global",
+      "count": 120
+    },
+    {
+      "name": "No region tag",
+      "count": 506
+    }
+  ]
+}

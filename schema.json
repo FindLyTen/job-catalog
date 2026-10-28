@@ -1,0 +1,46 @@
+{
+  "schema": "job-catalog-index-v1",
+  "about": "Machine-readable index of the Job Catalog, generated from data.json. data.json is the source of truth and is not modified.",
+  "files": {
+    "data.json": "Original catalog: {cats: [...], items: [{id,name,url,tags,cat,sub}]}.",
+    "index.json": "Summary: schema id, generation time, source hash, counts, categories with subcategories, countries, regions.",
+    "index.jsonl": "One catalog source per line (JSON object, same item fields as below).",
+    "schema.json": "This file.",
+    "catalog.html": "Human page, works offline, search and filters.",
+    "INDEX.md": "Human-readable Markdown index.",
+    "mindmap.html": "Offline mind map of categories and subcategories (Mermaid)."
+  },
+  "index_json_fields": {
+    "schema": "Format id: job-catalog-index-v1.",
+    "generated_at": "UTC time of generation.",
+    "source": "Path, sha256, size and counts of data.json; modified=false means data.json was only read.",
+    "counts": "Totals: items, categories, subcategories, items_with_country, remote_items, items_without_subcategory_in_source, doubtful_subcategories.",
+    "categories": "Array of {id, name, color, count, subcategories:[{id,name,count,source}]}; source=data means the subcategory exists in data.json, source=view means it was added for display.",
+    "countries": "Array of {name, count}, derived from tags.",
+    "regions": "Array of {name, count}, derived from country tags and the Remote/EU tags."
+  },
+  "item_fields": {
+    "schema": "job-catalog-index-v1.item",
+    "id": "Original id from data.json.",
+    "name": "Original name from data.json.",
+    "display_name": "Name plus country for humans; display-only.",
+    "url": "Original URL.",
+    "category": "Original category id (data.json cat).",
+    "category_name": "Human category name.",
+    "subcategory": "Original sub id, or a view-only id when data.json has none.",
+    "subcategory_name": "Human subcategory name.",
+    "subcategory_source": "data = present in data.json; view = added for display only.",
+    "doubtful_subcategory": "true when the subcategory was added in the view, not present in data.json.",
+    "tags": "Original tags array.",
+    "countries": "Countries derived from tags (display-only).",
+    "regions": "Regions derived from country tags and Remote/EU (display-only).",
+    "remote": "true when the Remote tag is present.",
+    "login": "true when the Login tag is present.",
+    "freelance": "true when the Freelance tag is present."
+  },
+  "notes": [
+    "Every source from data.json is present; nothing is dropped.",
+    "Display-only fields never change data.json; consumers that need the original data should read data.json.",
+    "URLs are kept exactly as in data.json (only trimmed of surrounding spaces)."
+  ]
+}

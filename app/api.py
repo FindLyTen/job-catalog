@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """Job Catalog API v2 — catalog + workspace (profile, applications, queue, stats)."""
 import json, os, re, threading, time
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_from_directory
 
 app = Flask(__name__)
 BASE = os.path.dirname(os.path.abspath(__file__))
-DATA = os.path.join(BASE, "data.json")
+ROOT = os.path.dirname(BASE)
+DATA = os.path.join(ROOT, "data.json")
 WS = os.path.join(BASE, "workspace.json")
 LOCK = threading.Lock()
 
@@ -14,13 +15,12 @@ RESUME_DIR = os.path.join(BASE, "resumes")
 
 WS_DEFAULT = {
     "profile": {
-        "name": "Maxim Smirnov",
-        "email": "maxsmirnov428@gmail.com",
-        "location": "Chisinau, Moldova",
-        "work_hours": "Evenings only (17:00-24:00 Chisinau) = US business hours EST",
-        "target_levels": ["entry", "entry-middle", "middle"],
-        "notes": "College during the day. US working hours are Maxim's evening. "
-                 "Apply to all entry/entry-middle/middle vacancies; senior+ = too hard.",
+        "name": "",
+        "email": "",
+        "location": "",
+        "work_hours": "",
+        "target_levels": [],
+        "notes": "",
         "updated": None,
     },
     "applications": [],
@@ -51,6 +51,26 @@ def ws_all():
 
 def ws_save(d):
     write(WS, d)
+
+
+# ---------- readable views (generated from data.json) ----------
+
+VIEW_FILES = {
+    "catalog.html", "INDEX.md", "mindmap.html", "mindmap.md",
+    "index.json", "index.jsonl", "schema.json",
+}
+
+
+@app.route("/")
+def home():
+    return send_from_directory(ROOT, "catalog.html")
+
+
+@app.route("/<path:name>")
+def view_file(name):
+    if name in VIEW_FILES or (name.startswith("vendor/") and name.count("/") == 1):
+        return send_from_directory(ROOT, name)
+    return jsonify({"ok": False, "error": "not found"}), 404
 
 
 # ---------- catalog ----------
@@ -235,7 +255,7 @@ def get_resumes():
     return jsonify([{"file": f, "url": "/resumes/" + f} for f in files])
 
 
-# ---------- submissions (Maxim drops a job URL -> bot fills it) ----------
+# ---------- submissions (user drops a job URL -> bot fills it) ----------
 
 @app.route("/api/ws/submit", methods=["POST"])
 def post_submit():
@@ -312,4 +332,6 @@ def next_submit():
 
 
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=5056)
+    host = os.environ.get("JOB_CATALOG_HOST", "127.0.0.1")
+    port = int(os.environ.get("JOB_CATALOG_PORT", "5056"))
+    app.run(host=host, port=port)

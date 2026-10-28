@@ -409,7 +409,7 @@ function renderSubmit(){
     <div class="submit-row">
       <input id="sub-url" placeholder="Paste job posting URL — the bot will open it and fill the form">
       <select id="sub-resume"><option value="">Auto resume</option>
-        ${resumesList.map(r=>`<option value="${escH(r.file)}">${escH(r.file.replace('maxim_smirnov_','').replace('.pdf',''))}</option>`).join('')}
+        ${resumesList.map(r=>`<option value="${escH(r.file)}">${escH(r.file.replace(/\.pdf$/i,''))}</option>`).join('')}
       </select>
       <button class="btn bp" id="sub-go">${ICONS.plus} Queue</button>
     </div>
@@ -445,9 +445,9 @@ function renderResumes(){
   document.getElementById('page').innerHTML=`
   <div class="resume-grid">
   ${resumesList.length?resumesList.map(r=>{
-    const name=r.file.replace('maxim_smirnov_','').replace('.pdf','');
+    const name=r.file.replace(/\.pdf$/i,'');
     return `<div class="resume-card">
-      <div class="resume-ico">${name==='logistics'?'&#128666;':'&#128196;'}</div>
+      <div class="resume-ico">${name.includes('logistic')?'&#128666;':'&#128196;'}</div>
       <div><div class="resume-name">${escH(name)}</div><div class="resume-file">${escH(r.file)}</div></div>
       <div class="resume-actions">
         <a href="${escH(r.url)}" target="_blank" rel="noopener">Open</a>
