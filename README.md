@@ -45,7 +45,7 @@ file, so it needs no internet.
 | 12 | [Marketing & SEO](INDEX.md#marketing--seo) | 18 | Digital Marketing, SEO & Content, MarTech & RevOps |
 | 13 | [Sales & BD](INDEX.md#sales--bd) | 16 | SDR & Lead Gen, Closers & High-Ticket |
 | 14 | [Finance & Legal](INDEX.md#finance--legal) | 16 | Accounting & Trading, Legal |
-| 15 | [Government & NGO](INDEX.md#government--ngo | 14 | Government, NGO & Non-Profit, Green & Sustainability |
+| 15 | [Government & NGO](INDEX.md#government--ngo) | 14 | Government, NGO & Non-Profit, Green & Sustainability |
 | 16 | [Content & Writing](INDEX.md#content--writing) | 8 | Writing & Media, YouTube & Video |
 | 17 | [Product & PM](INDEX.md#product--pm) | 4 | Product Management, PM Leadership & CTO, Product Community |
 | 18 | [Support & CS](INDEX.md#support--cs) | 4 | Customer Support, Customer Success, Technical Support |
