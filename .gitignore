@@ -7,3 +7,8 @@ reports/
 *.bak-*
 *.tar.gz
 .DS_Store
+
+# local app data (personal, never publish)
+app/workspace.json
+app/workspace.json.tmp
+app/resumes/
