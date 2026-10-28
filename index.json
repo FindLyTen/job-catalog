@@ -1,20 +1,20 @@
 {
   "schema": "job-catalog-index-v1",
-  "generated_at": "2026-10-28 20:09 UTC",
+  "generated_at": "2026-10-28 20:29 UTC",
   "source": {
     "path": "data.json",
-    "sha256": "859256dfdce4cd8ee81105a062ea38d0762630b1c58b5cf01412b811b20c795b",
-    "bytes": 173926,
-    "items": 879,
+    "sha256": "65649f66c797746593c19dce19852145c70ed22d02b40c104cada0c75e8f6598",
+    "bytes": 178083,
+    "items": 899,
     "categories": 18,
     "modified": false
   },
   "counts": {
-    "items": 879,
+    "items": 899,
     "categories": 18,
     "subcategories": 60,
-    "items_with_country": 282,
-    "remote_items": 101,
+    "items_with_country": 301,
+    "remote_items": 105,
     "items_without_subcategory_in_source": 37,
     "doubtful_subcategories": 37
   },
@@ -23,24 +23,24 @@
       "id": "dev",
       "name": "Development",
       "color": "#3b82f6",
-      "count": 183,
+      "count": 187,
       "subcategories": [
         {
           "id": "remote",
           "name": "Remote-first",
-          "count": 36,
+          "count": 37,
           "source": "data"
         },
         {
           "id": "regional",
           "name": "Regional",
-          "count": 59,
+          "count": 61,
           "source": "data"
         },
         {
           "id": "stack",
           "name": "Stack boards",
-          "count": 51,
+          "count": 52,
           "source": "data"
         },
         {
@@ -67,12 +67,12 @@
       "id": "ai",
       "name": "AI & Data",
       "color": "#8b5cf6",
-      "count": 30,
+      "count": 32,
       "subcategories": [
         {
           "id": "ml",
           "name": "AI & ML",
-          "count": 16,
+          "count": 18,
           "source": "data"
         },
         {
@@ -87,7 +87,7 @@
       "id": "devops",
       "name": "DevOps & Infra",
       "color": "#0ea5e9",
-      "count": 19,
+      "count": 20,
       "subcategories": [
         {
           "id": "sec",
@@ -98,7 +98,7 @@
         {
           "id": "cloud",
           "name": "Cloud & Sysadmin",
-          "count": 11,
+          "count": 12,
           "source": "data"
         },
         {
@@ -381,7 +381,7 @@
       "id": "edu",
       "name": "Education",
       "color": "#eab308",
-      "count": 24,
+      "count": 25,
       "subcategories": [
         {
           "id": "internships",
@@ -392,7 +392,7 @@
         {
           "id": "teaching",
           "name": "Teaching",
-          "count": 8,
+          "count": 9,
           "source": "data"
         },
         {
@@ -407,7 +407,7 @@
       "id": "gov",
       "name": "Government & NGO",
       "color": "#64748b",
-      "count": 14,
+      "count": 15,
       "subcategories": [
         {
           "id": "gov",
@@ -424,7 +424,7 @@
         {
           "id": "green",
           "name": "Green & Sustainability",
-          "count": 3,
+          "count": 4,
           "source": "data"
         }
       ]
@@ -433,7 +433,7 @@
       "id": "niche",
       "name": "Industry Niche",
       "color": "#78716c",
-      "count": 65,
+      "count": 67,
       "subcategories": [
         {
           "id": "diversity",
@@ -450,7 +450,7 @@
         {
           "id": "science",
           "name": "Science & Space",
-          "count": 10,
+          "count": 11,
           "source": "data"
         },
         {
@@ -468,7 +468,7 @@
         {
           "id": "engineering",
           "name": "Architecture & Engineering",
-          "count": 4,
+          "count": 5,
           "source": "data"
         },
         {
@@ -489,18 +489,18 @@
       "id": "general",
       "name": "General Job Boards",
       "color": "#6b7280",
-      "count": 347,
+      "count": 356,
       "subcategories": [
         {
           "id": "global",
           "name": "Global",
-          "count": 131,
+          "count": 134,
           "source": "data"
         },
         {
           "id": "eu",
           "name": "Europe",
-          "count": 139,
+          "count": 145,
           "source": "data"
         },
         {
@@ -526,16 +526,16 @@
   ],
   "countries": [
     {
-      "name": "Germany",
-      "count": 37
+      "name": "United Kingdom",
+      "count": 41
     },
     {
-      "name": "United Kingdom",
-      "count": 36
+      "name": "Germany",
+      "count": 38
     },
     {
       "name": "United States",
-      "count": 32
+      "count": 34
     },
     {
       "name": "Canada",
@@ -543,7 +543,7 @@
     },
     {
       "name": "Belgium",
-      "count": 25
+      "count": 26
     },
     {
       "name": "Australia",
@@ -606,6 +606,10 @@
       "count": 5
     },
     {
+      "name": "Austria",
+      "count": 4
+    },
+    {
       "name": "Chile",
       "count": 4
     },
@@ -618,7 +622,7 @@
       "count": 4
     },
     {
-      "name": "Austria",
+      "name": "AI",
       "count": 3
     },
     {
@@ -658,6 +662,10 @@
       "count": 2
     },
     {
+      "name": "India",
+      "count": 2
+    },
+    {
       "name": "Moldova",
       "count": 2
     },
@@ -670,11 +678,39 @@
       "count": 1
     },
     {
+      "name": "Construction",
+      "count": 1
+    },
+    {
+      "name": "Contract",
+      "count": 1
+    },
+    {
       "name": "Croatia",
       "count": 1
     },
     {
       "name": "Cyprus",
+      "count": 1
+    },
+    {
+      "name": "Defense",
+      "count": 1
+    },
+    {
+      "name": "DevOps",
+      "count": 1
+    },
+    {
+      "name": "DevRel",
+      "count": 1
+    },
+    {
+      "name": "ESG",
+      "count": 1
+    },
+    {
+      "name": "Flexible",
       "count": 1
     },
     {
@@ -704,16 +740,32 @@
     {
       "name": "Slovenia",
       "count": 1
+    },
+    {
+      "name": "Space",
+      "count": 1
+    },
+    {
+      "name": "Startups",
+      "count": 1
+    },
+    {
+      "name": "TVET",
+      "count": 1
+    },
+    {
+      "name": "WordPress",
+      "count": 1
     }
   ],
   "regions": [
     {
       "name": "Europe",
-      "count": 187
+      "count": 195
     },
     {
       "name": "North America",
-      "count": 55
+      "count": 57
     },
     {
       "name": "Latin America",
@@ -729,11 +781,11 @@
     },
     {
       "name": "Remote / Global",
-      "count": 120
+      "count": 124
     },
     {
       "name": "No region tag",
-      "count": 506
+      "count": 512
     }
   ]
 }

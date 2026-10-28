@@ -8276,6 +8276,216 @@
       "tags": [
         "Remote"
       ]
+    },
+    {
+      "cat": "general",
+      "id": "u2026102801",
+      "name": "Total Jobs",
+      "url": "https://www.totaljobs.com/",
+      "tags": [
+        "UK"
+      ],
+      "sub": "eu"
+    },
+    {
+      "cat": "general",
+      "id": "u2026102802",
+      "name": "StepStone Austria",
+      "url": "https://www.stepstone.at/",
+      "tags": [
+        "Austria"
+      ],
+      "sub": "eu"
+    },
+    {
+      "cat": "general",
+      "id": "u2026102803",
+      "name": "StepStone Belgium",
+      "url": "https://www.stepstone.be/",
+      "tags": [
+        "Belgium"
+      ],
+      "sub": "eu"
+    },
+    {
+      "cat": "general",
+      "id": "u2026102804",
+      "name": "StepStone Germany",
+      "url": "https://www.stepstone.de/",
+      "tags": [
+        "Germany"
+      ],
+      "sub": "eu"
+    },
+    {
+      "cat": "general",
+      "id": "u2026102805",
+      "name": "Contractor Jobs",
+      "url": "https://www.contractorjobs.co.uk/",
+      "tags": [
+        "UK",
+        "Contract"
+      ],
+      "sub": "eu"
+    },
+    {
+      "cat": "general",
+      "id": "u2026102806",
+      "name": "Jobsite UK",
+      "url": "https://www.jobsite.co.uk/jobs/it",
+      "tags": [
+        "UK"
+      ],
+      "sub": "eu"
+    },
+    {
+      "cat": "general",
+      "id": "u2026102807",
+      "name": "Remote Hunt",
+      "url": "https://remotehunt.com/",
+      "tags": [
+        "Remote"
+      ],
+      "sub": "global"
+    },
+    {
+      "cat": "general",
+      "id": "u2026102808",
+      "name": "FlexHired",
+      "url": "https://flexhired.com/",
+      "tags": [
+        "Remote",
+        "Flexible"
+      ],
+      "sub": "global"
+    },
+    {
+      "cat": "general",
+      "id": "u2026102809",
+      "name": "HireBase",
+      "url": "https://www.hirebase.org/",
+      "tags": [
+        "USA",
+        "AI"
+      ],
+      "sub": "global"
+    },
+    {
+      "cat": "dev",
+      "id": "u2026102810",
+      "name": "DevRel Jobs",
+      "url": "https://www.devreljob.com/",
+      "tags": [
+        "Remote",
+        "DevRel"
+      ],
+      "sub": "remote"
+    },
+    {
+      "cat": "dev",
+      "id": "u2026102811",
+      "name": "Jobs WordPress",
+      "url": "https://jobs.wordpress.net/",
+      "tags": [
+        "WordPress"
+      ],
+      "sub": "stack"
+    },
+    {
+      "cat": "dev",
+      "id": "u2026102812",
+      "name": "Developer Jobs India",
+      "url": "https://www.developerjobs.in/jobs",
+      "tags": [
+        "India"
+      ],
+      "sub": "regional"
+    },
+    {
+      "cat": "dev",
+      "id": "u2026102813",
+      "name": "PeopleWhoCode",
+      "url": "https://peoplewhocode.io/",
+      "tags": [
+        "India"
+      ],
+      "sub": "regional"
+    },
+    {
+      "cat": "devops",
+      "id": "u2026102814",
+      "name": "DevOps Remotely",
+      "url": "https://devopsremotely.com/",
+      "tags": [
+        "Remote",
+        "DevOps"
+      ],
+      "sub": "cloud"
+    },
+    {
+      "cat": "ai",
+      "id": "u2026102815",
+      "name": "Jobs in AI",
+      "url": "https://jobsinai.com/",
+      "tags": [
+        "AI"
+      ],
+      "sub": "ml"
+    },
+    {
+      "cat": "ai",
+      "id": "u2026102816",
+      "name": "ExploreJobs.ai",
+      "url": "https://explorejobs.ai/",
+      "tags": [
+        "AI",
+        "Startups"
+      ],
+      "sub": "ml"
+    },
+    {
+      "cat": "gov",
+      "id": "u2026102817",
+      "name": "ESG Career",
+      "url": "https://esg-career.com/",
+      "tags": [
+        "UK",
+        "ESG"
+      ],
+      "sub": "green"
+    },
+    {
+      "cat": "niche",
+      "id": "u2026102818",
+      "name": "Quantity Surveyor Jobs UK",
+      "url": "https://quantitysurveyorjobs.uk/",
+      "tags": [
+        "UK",
+        "Construction"
+      ],
+      "sub": "engineering"
+    },
+    {
+      "cat": "edu",
+      "id": "u2026102819",
+      "name": "TVET Jobs",
+      "url": "https://tvetjobs.org/",
+      "tags": [
+        "TVET"
+      ],
+      "sub": "teaching"
+    },
+    {
+      "cat": "niche",
+      "id": "u2026102820",
+      "name": "Defense and Space Jobs",
+      "url": "https://www.criticalobjective.com/",
+      "tags": [
+        "USA",
+        "Defense",
+        "Space"
+      ],
+      "sub": "science"
     }
   ]
 }

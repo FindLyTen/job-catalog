@@ -1,6 +1,6 @@
 # Job Catalog
 
-**879 curated job-search sources in 18 categories** — job boards, remote-first
+**899 curated job-search sources in 18 categories** — job boards, remote-first
 platforms, stack-specific boards, startups, gamedev, AI & Data, regional boards
 for Europe/US/Asia, plus niche and industry lists.
 
@@ -18,7 +18,7 @@ Focus: Moldova / EU market, entry to middle level. Everything is public.
 | Interactive catalog | [`catalog.html`](catalog.html) | download and double-click — works offline |
 | Readable index | [`INDEX.md`](INDEX.md) | browse here on GitHub, by category and subcategory |
 | Mind map | [`mindmap.md`](mindmap.md) | renders on GitHub; offline version: [`mindmap.html`](mindmap.html) |
-| Raw data | [`data.json`](data.json) | 879 sources, source of truth |
+| Raw data | [`data.json`](data.json) | 899 sources, source of truth |
 | Machine index | [`index.json`](index.json) | counts, categories, per-subcategory source list |
 | Flat index | [`index.jsonl`](index.jsonl) | one source per line, enriched |
 | Format | [`schema.json`](schema.json) | plain description of every field |
@@ -31,21 +31,21 @@ file, so it needs no internet.
 
 | # | Category | Sources | Subcategories |
 |---|---|---|---|
-| 1 | [General Job Boards](INDEX.md#general-job-boards) | 347 | Global, Europe, Ukraine, Americas, Asia-Pacific |
-| 2 | [Development](INDEX.md#development) | 183 | Remote-first, Regional, Stack boards, Startups, Gamedev, AI & Data |
-| 3 | [Industry Niche](INDEX.md#industry-niche) | 65 | Diversity, Outdoor & Seasonal, Science & Space, Ecommerce, Property, Architecture & Engineering, Sports, Aviation |
+| 1 | [General Job Boards](INDEX.md#general-job-boards) | 356 | Global, Europe, Ukraine, Americas, Asia-Pacific |
+| 2 | [Development](INDEX.md#development) | 187 | Remote-first, Regional, Stack boards, Startups, Gamedev, AI & Data |
+| 3 | [Industry Niche](INDEX.md#industry-niche) | 67 | Diversity, Outdoor & Seasonal, Science & Space, Ecommerce, Property, Architecture & Engineering, Sports, Aviation |
 | 4 | [Ops & Logistics](INDEX.md#ops--logistics) | 37 | Construction, Skilled Trades, Logistics & Trade, Hospitality, Energy & Utilities |
-| 5 | [AI & Data](INDEX.md#ai--data) | 30 | AI & ML, Data & Analytics |
+| 5 | [AI & Data](INDEX.md#ai--data) | 32 | AI & ML, Data & Analytics |
 | 6 | [Design & Creative](INDEX.md#design--creative) | 30 | UX & Product Design, Creative & Art |
-| 7 | [Web3 & Crypto](INDEX.md#web3--crypto) | 24 | Job Boards, Dev & Engineering, DeFi & DAO, Freelance & Bounties |
-| 8 | [Education](INDEX.md#education) | 24 | Internships & Entry, Teaching, Higher Ed |
+| 7 | [Education](INDEX.md#education) | 25 | Internships & Entry, Teaching, Higher Ed |
+| 8 | [Web3 & Crypto](INDEX.md#web3--crypto) | 24 | Job Boards, Dev & Engineering, DeFi & DAO, Freelance & Bounties |
 | 9 | [Healthcare](INDEX.md#healthcare) | 21 | Nursing, Pharma & Biotech |
-| 10 | [DevOps & Infra](INDEX.md#devops--infra) | 19 | Security, Cloud & Sysadmin, Salesforce |
+| 10 | [DevOps & Infra](INDEX.md#devops--infra) | 20 | Security, Cloud & Sysadmin, Salesforce |
 | 11 | [HR & Recruiting](INDEX.md#hr--recruiting) | 19 | Recruiting & Sourcing, People & HR Ops |
 | 12 | [Marketing & SEO](INDEX.md#marketing--seo) | 18 | Digital Marketing, SEO & Content, MarTech & RevOps |
 | 13 | [Sales & BD](INDEX.md#sales--bd) | 16 | SDR & Lead Gen, Closers & High-Ticket |
 | 14 | [Finance & Legal](INDEX.md#finance--legal) | 16 | Accounting & Trading, Legal |
-| 15 | [Government & NGO](INDEX.md#government--ngo) | 14 | Government, NGO & Non-Profit, Green & Sustainability |
+| 15 | [Government & NGO](INDEX.md#government--ngo) | 15 | Government, NGO & Non-Profit, Green & Sustainability |
 | 16 | [Content & Writing](INDEX.md#content--writing) | 8 | Writing & Media, YouTube & Video |
 | 17 | [Product & PM](INDEX.md#product--pm) | 4 | Product Management, PM Leadership & CTO, Product Community |
 | 18 | [Support & CS](INDEX.md#support--cs) | 4 | Customer Support, Customer Success, Technical Support |
@@ -73,7 +73,7 @@ Shape:
 - Use `index.jsonl` if you want a flat list: one source per line, already joined
   with category and subcategory names, plus display-only fields (`country`,
   `region`, `remote`, `view_sub`).
-- Use `index.json` to get category/subcategory counts without scanning 879 lines.
+- Use `index.json` to get category/subcategory counts without scanning 899 lines.
 - `schema.json` describes every field in plain words.
 - `data.json` is the source of truth and never changes when views are rebuilt.
 
@@ -87,7 +87,7 @@ python3 tools/build_views.py
 
 It reads `data.json`, writes `catalog.html`, `INDEX.md`, `mindmap.md`,
 `mindmap.html`, `index.json`, `index.jsonl`, `schema.json`, validates the result
-(all 879 URLs present, JSON parses, no personal data) and prints a summary.
+(all 899 URLs present, JSON parses, no personal data) and prints a summary.
 
 View-only enrichment does **not** touch `data.json`:
 

@@ -1,18 +1,18 @@
 # Job Catalog — mind map
 
-All 879 sources as 18 categories and their subcategories.
+All 899 sources as 18 categories and their subcategories.
 GitHub renders the tree below. Offline interactive version: `mindmap.html`.
 
 ```mermaid
 flowchart LR
-  root(["Job Catalog - 879 sources"])
-  c0["Development<br/>183"]
+  root(["Job Catalog - 899 sources"])
+  c0["Development<br/>187"]
   root --> c0
-  c0_0["Remote-first<br/>36"]
+  c0_0["Remote-first<br/>37"]
   c0 --> c0_0
-  c0_1["Regional<br/>59"]
+  c0_1["Regional<br/>61"]
   c0 --> c0_1
-  c0_2["Stack boards<br/>51"]
+  c0_2["Stack boards<br/>52"]
   c0 --> c0_2
   c0_3["Startups<br/>24"]
   c0 --> c0_3
@@ -20,17 +20,17 @@ flowchart LR
   c0 --> c0_4
   c0_5["AI and Data<br/>6"]
   c0 --> c0_5
-  c1["AI and Data<br/>30"]
+  c1["AI and Data<br/>32"]
   root --> c1
-  c1_0["AI and ML<br/>16"]
+  c1_0["AI and ML<br/>18"]
   c1 --> c1_0
   c1_1["Data and Analytics<br/>14"]
   c1 --> c1_1
-  c2["DevOps and Infra<br/>19"]
+  c2["DevOps and Infra<br/>20"]
   root --> c2
   c2_0["Security<br/>5"]
   c2 --> c2_0
-  c2_1["Cloud and Sysadmin<br/>11"]
+  c2_1["Cloud and Sysadmin<br/>12"]
   c2 --> c2_1
   c2_2["Salesforce<br/>3"]
   c2 --> c2_2
@@ -116,45 +116,45 @@ flowchart LR
   c13 --> c13_0
   c13_1["Pharma and Biotech<br/>7"]
   c13 --> c13_1
-  c14["Education<br/>24"]
+  c14["Education<br/>25"]
   root --> c14
   c14_0["Internships and Entry<br/>10"]
   c14 --> c14_0
-  c14_1["Teaching<br/>8"]
+  c14_1["Teaching<br/>9"]
   c14 --> c14_1
   c14_2["Higher Ed<br/>6"]
   c14 --> c14_2
-  c15["Government and NGO<br/>14"]
+  c15["Government and NGO<br/>15"]
   root --> c15
   c15_0["Government<br/>4"]
   c15 --> c15_0
   c15_1["NGO and Non-Profit<br/>7"]
   c15 --> c15_1
-  c15_2["Green and Sustainability<br/>3"]
+  c15_2["Green and Sustainability<br/>4"]
   c15 --> c15_2
-  c16["Industry Niche<br/>65"]
+  c16["Industry Niche<br/>67"]
   root --> c16
   c16_0["Diversity and Inclusion<br/>22"]
   c16 --> c16_0
   c16_1["Outdoor and Seasonal<br/>15"]
   c16 --> c16_1
-  c16_2["Science and Space<br/>10"]
+  c16_2["Science and Space<br/>11"]
   c16 --> c16_2
   c16_3["Ecommerce<br/>2"]
   c16 --> c16_3
   c16_4["Property and Real Estate<br/>4"]
   c16 --> c16_4
-  c16_5["Architecture and Engineering<br/>4"]
+  c16_5["Architecture and Engineering<br/>5"]
   c16 --> c16_5
   c16_6["Sports<br/>4"]
   c16 --> c16_6
   c16_7["Aviation<br/>4"]
   c16 --> c16_7
-  c17["General Job Boards<br/>347"]
+  c17["General Job Boards<br/>356"]
   root --> c17
-  c17_0["Global<br/>131"]
+  c17_0["Global<br/>134"]
   c17 --> c17_0
-  c17_1["Europe<br/>139"]
+  c17_1["Europe<br/>145"]
   c17 --> c17_1
   c17_2["Ukraine<br/>10"]
   c17 --> c17_2

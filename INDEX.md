@@ -1,14 +1,14 @@
 # Job Catalog — readable index
 
-879 sources in 18 categories. Generated 2026-10-28 20:09 UTC from `data.json` (sha256 `859256dfdce4cd8e…`).
+899 sources in 18 categories. Generated 2026-10-28 20:29 UTC from `data.json` (sha256 `65649f66c7977465…`).
 
 `data.json` itself is not changed. Country in names, filled subcategories and the `(view)` note are display-only. `(view)` means the subcategory was added in this index because the data file has none.
 
 ## Contents
 
-- [Development](#development) — 183
-- [AI & Data](#ai--data) — 30
-- [DevOps & Infra](#devops--infra) — 19
+- [Development](#development) — 187
+- [AI & Data](#ai--data) — 32
+- [DevOps & Infra](#devops--infra) — 20
 - [Design & Creative](#design--creative) — 30
 - [Product & PM](#product--pm) — 4
 - [Marketing & SEO](#marketing--seo) — 18
@@ -20,16 +20,16 @@
 - [HR & Recruiting](#hr--recruiting) — 19
 - [Content & Writing](#content--writing) — 8
 - [Healthcare](#healthcare) — 21
-- [Education](#education) — 24
-- [Government & NGO](#government--ngo) — 14
-- [Industry Niche](#industry-niche) — 65
-- [General Job Boards](#general-job-boards) — 347
+- [Education](#education) — 25
+- [Government & NGO](#government--ngo) — 15
+- [Industry Niche](#industry-niche) — 67
+- [General Job Boards](#general-job-boards) — 356
 
 ## Development
 
-183 sources in this category.
+187 sources in this category.
 
-### Remote-first — 36
+### Remote-first — 37
 
 - [Arc](<https://arc.dev/remote-jobs>)
 - [AuthenticJobs](<https://authenticjobs.com/>)
@@ -37,6 +37,7 @@
 - [Crunchboard (United States)](<https://www.crunchboard.com/>) — USA
 - [devjobsscanner](<https://www.devjobsscanner.com/>)
 - [DevRel Careers (Portugal +1)](<https://devrelcareers.com/>) — Portugal, Spain
+- [DevRel Jobs (DevRel)](<https://www.devreljob.com/>) — Remote, DevRel
 - [Devremote](<https://devremote.io/>) — Remote
 - [Dice](<https://www.dice.com/home-feed>)
 - [Digital Jobs](<https://www.digitaljobs.com/>)
@@ -68,7 +69,7 @@
 - [Workable](<https://jobs.workable.com/>)
 - [WorksHub](<https://www.works-hub.com/jobs>)
 
-### Regional — 59
+### Regional — 61
 
 - [4programmers (Poland)](<https://4programmers.net/>) — Poland
 - [Arbeitnow](<https://www.arbeitnow.com/>)
@@ -80,6 +81,7 @@
 - [Christian Tech Jobs](<https://www.christiantechjobs.io/>)
 - [Computer Jobs (Ireland)](<https://www.computerjobs.ie/>) — Ireland
 - [Danish Tech](<https://danishtech.co/>)
+- [Developer Jobs India (India)](<https://www.developerjobs.in/jobs>) — India
 - [DevItJobs (France)](<https://devitjobs.fr/>) — France
 - [DevItJobs (Germany)](<https://germantechjobs.de/en>) — Germany
 - [DevItJobs (Netherlands)](<https://devitjobs.nl/en>) — Netherlands
@@ -117,6 +119,7 @@
 - [Nephy](<https://nephy.io/jobs>)
 - [Next Level Jobs EU (Belgium +3)](<https://nextleveljobs.eu/>) — EU, Belgium, UK, Switzerland, Spain
 - [Paul Roberts JP (Japan)](<https://paulroberts.jp/jobs>) — Japan
+- [PeopleWhoCode (India)](<https://peoplewhocode.io/>) — India
 - [Programathor (Brazil)](<https://programathor.com.br/>) — Brazil
 - [Remote Army](<https://remotearmy.io/>) — Remote
 - [RemoteFR (Belgium)](<https://remotefr.com/>) — Belgium, Remote
@@ -130,7 +133,7 @@
 - [VietnamDevs (Vietnam)](<https://vietnamdevs.com/>) — Vietnam
 - [Zobjobs](<https://zobjobs.com/en-us>)
 
-### Stack boards — 51
+### Stack boards — 52
 
 - [All PHP](<https://allphp.com/>)
 - [All The Code](<https://allthecode.co/jobs>)
@@ -162,6 +165,7 @@
 - [Jobs in Flutter](<https://jobsinflutter.com/>)
 - [Jobs in JS (China +5)](<https://jobsinjs.com/>) — China, Australia, Brazil, Belgium, Germany, Japan
 - [Jobs in Rust](<https://jobsinrust.com/>)
+- [Jobs WordPress (WordPress)](<https://jobs.wordpress.net/>) — WordPress
 - [JS Remotely](<https://jsremotely.com/>) — Remote
 - [JsJobbs](<https://jsjobbs.com/>)
 - [Larajobs](<https://larajobs.com/?via=300194>)
@@ -233,9 +237,9 @@
 
 ## AI & Data
 
-30 sources in this category.
+32 sources in this category.
 
-### AI & ML — 16
+### AI & ML — 18
 
 - [AI Job Network](<https://aijobnetwork.com/>)
 - [AI jobs](<https://www.aijobs.com/>)
@@ -246,6 +250,8 @@
 - [Bot Jobs](<https://bot-jobs.com/>)
 - [Data Science Jobs](<https://datasciencejobs.com/>)
 - [Deep Learning Jobs](<https://www.deeplearningjobs.com/>)
+- [ExploreJobs.ai (AI +1)](<https://explorejobs.ai/>) — AI, Startups
+- [Jobs in AI (AI)](<https://jobsinai.com/>) — AI
 - [MLjobs](<https://mljobs.io/>)
 - [MoAIJobs](<https://www.moaijobs.com/>)
 - [Next AI Jobs](<https://nextaijobs.com/>)
@@ -274,7 +280,7 @@
 
 ## DevOps & Infra
 
-19 sources in this category.
+20 sources in this category.
 
 ### Security — 5
 
@@ -284,9 +290,10 @@
 - [Cyber Security Jobs](<https://www.cybersecurityjobsite.com/jobs>)
 - [infosec-jobs](<https://infosec-jobs.com/>)
 
-### Cloud & Sysadmin — 11
+### Cloud & Sysadmin — 12
 
 - [DevOps Jobs](<https://devopsjobs.io/>)
+- [DevOps Remotely (DevOps)](<https://devopsremotely.com/>) — Remote, DevOps
 - [DevOpsJobs](<https://devopsjobs.app/>)
 - [DevOpsJobs.com (United States)](<https://devopsjobs.com/>) — USA
 - [DevOpsProjectsHQ](<https://devopsprojectshq.com/>)
@@ -649,7 +656,7 @@
 
 ## Education
 
-24 sources in this category.
+25 sources in this category.
 
 ### Internships & Entry — 10
 
@@ -664,7 +671,7 @@
 - [Student Job Board (Australia)](<https://www.studentjobboard.com.au/>) — Australia
 - [Talent Egg (Canada)](<https://talentegg.ca/>) — Canada
 
-### Teaching — 8
+### Teaching — 9
 
 - [Emplois en Education](<https://emploiseneducation.com/jobs>)
 - [Emprego no Esporte (Brazil +1)](<https://empregonoesporte.com.br/>) — Brazil, Portugal
@@ -673,6 +680,7 @@
 - [Jobs In Education (Australia +1)](<https://jobsineducation.com/>) — Australia, Canada
 - [Online Education Jobs](<https://onlineeducationjobs.com/>)
 - [Teast (China +1)](<https://teast.co/>) — China, Japan
+- [TVET Jobs (TVET)](<https://tvetjobs.org/>) — TVET
 - [Vietnam Teaching Jobs (Vietnam)](<https://vietnamteachingjobs.com/>) — Vietnam
 
 ### Higher Ed — 6
@@ -687,7 +695,7 @@
 
 ## Government & NGO
 
-14 sources in this category.
+15 sources in this category.
 
 ### Government — 4
 
@@ -706,8 +714,9 @@
 - [The Impact Job](<https://www.theimpactjob.com/>)
 - [WorkInCharities (United Kingdom)](<https://www.workincharities.co.uk/>) — UK
 
-### Green & Sustainability — 3
+### Green & Sustainability — 4
 
+- [ESG Career (United Kingdom +1)](<https://esg-career.com/>) — UK, ESG
 - [Green Jobs](<https://greenjobs.com/>)
 - [Sustainablejobs nl (Belgium)](<https://sustainablejobs.nl/>) — Belgium
 - [Work In Green](<https://workingreen.jobs/>)
@@ -715,7 +724,7 @@
 
 ## Industry Niche
 
-65 sources in this category.
+67 sources in this category.
 
 ### Diversity & Inclusion — 22
 
@@ -760,10 +769,11 @@
 - [Travel Massive (Australia +1)](<https://www.travelmassive.com/classifieds>) — Australia, USA
 - [Travel Tech Essentialist Job Board](<https://travel-tech-essentialist-jobs.pallet.com/jobs>)
 
-### Science & Space — 10
+### Science & Space — 11
 
 - [Anyreality](<https://anyreality.jobboardly.com/>)
 - [AR VR Jobs](<https://www.arvrjobs.dev/>)
+- [Defense and Space Jobs (United States +2)](<https://www.criticalobjective.com/>) — USA, Defense, Space
 - [EuroScienceJobs (Germany)](<https://www.eurosciencejobs.com/>) — Germany
 - [Jobs in Quantum](<https://jobsinquantum.com/>)
 - [Jobs in XR](<https://jobsinxr.com/>)
@@ -785,12 +795,13 @@
 - [Property Vendors](<https://propertyvendors.com/>)
 - [PropertyManagementJobs.com](<https://propertymanagementjobs.com/>)
 
-### Architecture & Engineering — 4
+### Architecture & Engineering — 5
 
 - [Architecture Social](<https://architecturesocial.com/>)
 - [ArchJobs (United Kingdom)](<https://www.archjobs.co.uk/>) — UK
 - [EuroEngineerJobs (Belgium +1)](<https://www.euroengineerjobs.com/>) — Belgium, Germany
 - [HelveJobs (Switzerland)](<https://helvejobs.com/>) — Switzerland
+- [Quantity Surveyor Jobs UK (United Kingdom +1)](<https://quantitysurveyorjobs.uk/>) — UK, Construction
 
 ### Sports — 4
 
@@ -809,9 +820,9 @@
 
 ## General Job Boards
 
-347 sources in this category.
+356 sources in this category.
 
-### Global — 131
+### Global — 134
 
 - [4 Days Week](<https://4dayweek.io/job-search>)
 - [Anywhere Remote Jobs](<https://anywhereremotejobs.com/>) — Remote
@@ -835,6 +846,7 @@
 - [Find Work](<https://find.work/>)
 - [Fiverr](<https://www.fiverr.com/>) — Freelance
 - [Flex Jobs](<https://www.flexjobs.com/jobs>)
+- [FlexHired (Flexible)](<https://flexhired.com/>) — Remote, Flexible
 - [Flowremote](<https://www.flowremote.io/>) — Remote
 - [Found Role](<https://www.foundrole.com/jobs>)
 - [Freelancer Map](<https://www.freelancermap.com/>) — Freelance
@@ -843,6 +855,7 @@
 - [Global Sponsor Hub](<https://globalsponsorhub.com/>)
 - [Guru](<https://www.guru.com/>)
 - [Hackerx](<https://hackerx.org/jobs>)
+- [HireBase (United States +1)](<https://www.hirebase.org/>) — USA, AI
 - [HireBasis](<https://www.hirebasis.com/find-work>)
 - [Hiring Cafe](<https://hiringcafe.com/>)
 - [I REMOTE](<https://Iloveremote.io/>) — Remote
@@ -883,6 +896,7 @@
 - [Remote](<https://remote.co/remote-jobs>) — Remote
 - [Remote Biz](<https://www.remote.biz/>) — Remote
 - [Remote Habits](<https://remotehabits.com/>) — Remote
+- [Remote Hunt](<https://remotehunt.com/>) — Remote
 - [Remote Job Express](<https://remotejobexpress.com/>) — Remote
 - [Remote Leaf](<https://remoteleaf.com/>) — Remote
 - [Remote OK](<https://remoteok.com/>) — Remote
@@ -945,7 +959,7 @@
 - [WorkWithVisa](<https://workwithvisa.com/>)
 - [YubHub](<https://yubhub.co/>)
 
-### Europe — 139
+### Europe — 145
 
 - [4 Day Work Week Jobs (Sweden)](<https://job.com.se/>) — Sweden
 - [Adria Solutions Jobs board (United Kingdom)](<https://jobs.adriasolutions.co.uk/>) — UK
@@ -971,6 +985,7 @@
 - [C&C Search (United Kingdom)](<https://www.candcsearch.co.uk/jobs>) — UK
 - [CareerCount (Belgium)](<https://careercount.be/>) — Belgium
 - [Carga del Trabalhos (Portugal)](<https://cargadetrabalhos.pt/>) — Portugal
+- [Contractor Jobs (United Kingdom +1)](<https://www.contractorjobs.co.uk/>) — UK, Contract
 - [CV Bankas (Lithuania)](<https://ru.cvbankas.lt/>) — Lithuania
 - [CV Keskus (Estonia)](<https://www.cvkeskus.ee/>) — Estonia
 - [CV Library (United Kingdom)](<https://www.cv-library.co.uk/>) — UK
@@ -1028,6 +1043,7 @@
 - [JobSearchFR](<https://jobsearchfr.com/>)
 - [JobsHomeOffice (Germany)](<https://www.jobshomeoffice.com/>) — Germany
 - [JobsInDevon (United Kingdom)](<https://jobsindevon.uk/>) — UK
+- [Jobsite UK (United Kingdom)](<https://www.jobsite.co.uk/jobs/it>) — UK
 - [Jobsportal (Finland)](<https://jobsportal.fi/>) — Finland
 - [JobTeaser](<https://www.jobteaser.com/en/job-offers>)
 - [Jobware (Germany)](<https://www.jobware.com/>) — Germany
@@ -1072,9 +1088,13 @@
 - [Remote Rocketship (Australia +16)](<https://remoterocketship.com/>) — Australia, NZ, Singapore, Belgium, USA, Switzerland, Vietnam, Chile, Brazil, UK, Portugal, UAE, Japan, China, Canada, Germany, Spain, Remote
 - [stellenonline de (Germany)](<https://www.stellenonline.de/>) — Germany
 - [Step Into Jobs (United Kingdom)](<https://stepintojobs.co.uk/>) — UK
+- [StepStone Austria (Austria)](<https://www.stepstone.at/>) — Austria
+- [StepStone Belgium (Belgium)](<https://www.stepstone.be/>) — Belgium
+- [StepStone Germany (Germany)](<https://www.stepstone.de/>) — Germany
 - [The Guardian Jobs (United Kingdom)](<https://jobs.theguardian.com/>) — UK
 - [TopRemoteJobs (Portugal +3)](<https://www.topremotejobs.eu/>) — EU, Portugal, Spain, Belgium, Germany, Remote
 - [Topvacaturebank](<https://www.topvacaturebank.nl/>)
+- [Total Jobs (United Kingdom)](<https://www.totaljobs.com/>) — UK
 - [Undutchables (Netherlands)](<https://undutchables.nl/>) — Netherlands
 - [VDAB (Belgium)](<https://www.vdab.be/>) — Belgium
 - [Welcome to the Jungle (France)](<https://www.welcometothejungle.com/en/>) — France

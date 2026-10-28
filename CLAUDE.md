@@ -1,7 +1,7 @@
 # CLAUDE.md — repository guide
 
 ## What this repo is
-A public catalog of 879 job-search sources in 18 categories, for humans and for
+A public catalog of 899 job-search sources in 18 categories, for humans and for
 AI agents. There is no application code to run except an optional local Flask app.
 
 ## Source of truth
