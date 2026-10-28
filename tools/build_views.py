@@ -540,7 +540,7 @@ def write_index_md(cats, items, meta, out: Path) -> None:
         citems = [it for it in items if it["category"] == c["id"]]
         if not citems:
             continue
-        lines += ["", f'<a id="cat-{c["id"]}"></a>', f"## {md_text(c['name'])} — {len(citems)}", ""]
+        lines += ["", f'<a id="cat-{c["id"]}" name="cat-{c["id"]}"></a>', f"## {md_text(c['name'])} — {len(citems)}", ""]
         for sid, sname in c["subs"]:
             sitems = [it for it in citems if it["subcategory"] == sid]
             if not sitems:
